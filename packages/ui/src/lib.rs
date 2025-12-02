@@ -17,3 +17,6 @@ pub use button::*;
 pub mod button_group;
 pub use button_group as ButtonGroup;
 //pub use button_group as ButtonGroup;
+
+pub mod spinner;
+pub use spinner::*;

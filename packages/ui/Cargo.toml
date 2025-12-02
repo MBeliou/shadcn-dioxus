@@ -5,4 +5,5 @@ edition = "2021"
 
 [dependencies]
 dioxus = { workspace = true }
+lucide-dioxus = { version = "2.45.0", features = ["all-icons"] }
 

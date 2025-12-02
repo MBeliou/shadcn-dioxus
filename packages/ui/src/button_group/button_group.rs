@@ -1,6 +1,5 @@
-use dioxus::prelude::*;
 use crate::cn;
-
+use dioxus::prelude::*;
 
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum ButtonGroupOrientation {
@@ -30,23 +29,16 @@ const BASE_CLASSES: &str = "flex w-fit items-stretch has-[>[data-slot=button-gro
 pub fn button_group_variants(orientation: ButtonGroupOrientation) -> String {
     format!("{} {}", BASE_CLASSES, orientation.class())
 }
-/* 
-fn cn(base: &str, additional: Option<&str>) -> String {
-    match additional {
-        Some(extra) if !extra.is_empty() => format!("{} {}", base, extra),
-        _ => base.to_string(),
-    }
-}*/
 
 #[component]
 pub fn ButtonGroup(
     #[props(default)] orientation: ButtonGroupOrientation,
-    class: Option<String>,
+    #[props(into, default)] class: String,
     children: Element,
     #[props(extends = GlobalAttributes)] attributes: Vec<Attribute>,
 ) -> Element {
     let base_classes = button_group_variants(orientation);
-    let classes = cn(&base_classes, class.as_deref());
+    let classes = cn(&base_classes, &class);
 
     rsx! {
         div {

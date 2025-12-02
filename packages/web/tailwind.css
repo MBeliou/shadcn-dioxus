@@ -2,7 +2,6 @@
 @source "./src/**/*.{rs,html,css}";
 @source "../ui/src/**/*.{rs,html,css}";
 
-
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -74,8 +73,6 @@
   --sidebar-ring: oklch(0.645 0.246 16.439);
 }
 
-
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -128,6 +125,12 @@
   html,
   #main {
     @apply bg-background text-foreground scheme-only-dark;
+  }
+
+  .container-wrapper {
+    width: 100%;
+    padding-inline: calc(var(--spacing) * 2);
+    margin-inline: auto;
   }
 
   button:not([disabled]),

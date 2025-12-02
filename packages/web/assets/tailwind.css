@@ -7,16 +7,11 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-    --color-red-300: oklch(80.8% 0.114 19.571);
-    --color-red-500: oklch(63.7% 0.237 25.331);
-    --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-2xl: 42rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
-    --text-xs: 0.75rem;
-    --text-xs--line-height: calc(1 / 0.75);
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
@@ -33,6 +28,7 @@
     --font-weight-semibold: 600;
     --tracking-tighter: -0.05em;
     --tracking-tight: -0.025em;
+    --animate-spin: spin 1s linear infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -237,9 +233,9 @@
   .inline-flex {
     display: inline-flex;
   }
-  .size-2 {
-    width: calc(var(--spacing) * 2);
-    height: calc(var(--spacing) * 2);
+  .size-4 {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
   }
   .size-5 {
     width: calc(var(--spacing) * 5);
@@ -299,6 +295,9 @@
   .shrink-0 {
     flex-shrink: 0;
   }
+  .animate-spin {
+    animation: var(--animate-spin);
+  }
   .scroll-m-20 {
     scroll-margin: calc(var(--spacing) * 20);
   }
@@ -323,9 +322,6 @@
   .justify-center {
     justify-content: center;
   }
-  .gap-1 {
-    gap: calc(var(--spacing) * 1);
-  }
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
   }
@@ -347,9 +343,6 @@
   .overflow-hidden {
     overflow: hidden;
   }
-  .rounded-full {
-    border-radius: calc(infinity * 1px);
-  }
   .rounded-md {
     border-radius: calc(var(--radius) - 2px);
   }
@@ -357,14 +350,8 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-transparent {
-    border-color: transparent;
-  }
   .bg-background {
     background-color: var(--background);
-  }
-  .bg-blue-500 {
-    background-color: var(--color-blue-500);
   }
   .bg-border {
     background-color: var(--color-border);
@@ -384,12 +371,6 @@
   .bg-secondary {
     background-color: var(--secondary);
   }
-  .bg-transparent {
-    background-color: transparent;
-  }
-  .px-2 {
-    padding-inline: calc(var(--spacing) * 2);
-  }
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
@@ -401,9 +382,6 @@
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
-  }
-  .py-0\.5 {
-    padding-block: calc(var(--spacing) * 0.5);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -431,10 +409,6 @@
   .text-sm {
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
-  }
-  .text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
   }
   .text-\[1\.05rem\] {
     font-size: 1.05rem;
@@ -481,11 +455,6 @@
   .shadow-xs {
     --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .transition-\[color\,box-shadow\] {
-    transition-property: color,box-shadow;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   .transition-all {
     transition-property: all;
@@ -1009,6 +978,11 @@
     color: var(--foreground);
     color-scheme: only dark;
   }
+  .container-wrapper {
+    width: 100%;
+    padding-inline: calc(var(--spacing) * 2);
+    margin-inline: auto;
+  }
   button:not([disabled]), [role="button"]:not([disabled]) {
     cursor: pointer;
   }
@@ -1099,6 +1073,11 @@
 @property --tw-leading {
   syntax: "*";
   inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {

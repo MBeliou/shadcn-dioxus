@@ -5,7 +5,7 @@ pub fn Hero() -> Element {
     rsx! {
     div {
         id: "hero",
-        class: "container flex flex-col items-center gap-2 py-8 text-center md:py-16 lg:py-20 xl:gap-4",
+        class: "container-wrapper flex flex-col items-center gap-2 py-8 text-center md:py-16 lg:py-20 xl:gap-4",
         h1 { class: "text-primary leading-tighter text-4xl font-semibold tracking-tight text-balance lg:leading-[1.1] lg:font-semibold xl:text-5xl xl:tracking-tighter max-w-4xl",
             "The Foundation for your Design System"
         }

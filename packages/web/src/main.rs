@@ -10,9 +10,9 @@ enum Route {
     #[route("/")]
     Home {},
     #[layout(components::Layout)]
-    #[route("/component")]
+    #[route("/docs/component")]
     ComponentView {},
-    #[route("/component/button")]
+    #[route("/docs/component/button")]
     ButtonPage {},
     #[route("/blog/:id")]
     Blog { id: i32 },

@@ -1,6 +1,7 @@
-pub fn cn(base: &str, additional: Option<&str>) -> String {
-    match additional {
-        Some(extra) if !extra.is_empty() => format!("{} {}", base, extra),
-        _ => base.to_string(),
+pub fn cn(base: &str, additional: &str) -> String {
+    if additional.is_empty() {
+        base.to_string()
+    } else {
+        format!("{} {}", base, additional)
     }
 }

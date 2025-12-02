@@ -1,5 +1,7 @@
 use dioxus::prelude::*;
 
+use crate::cn;
+
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum ButtonVariant {
     #[default]
@@ -54,18 +56,12 @@ pub fn button_variants(variant: ButtonVariant, size: ButtonSize) -> String {
     format!("{} {} {}", BASE_CLASSES, variant.class(), size.class())
 }
 
-pub fn cn(base: &str, additional: Option<&str>) -> String {
-    match additional {
-        Some(extra) if !extra.is_empty() => format!("{} {}", base, extra),
-        _ => base.to_string(),
-    }
-}
 
 #[component]
 pub fn Button(
     #[props(default)] variant: ButtonVariant,
     #[props(default)] size: ButtonSize,
-    class: Option<String>,
+        #[props(into, default)] class: String,
     href: Option<String>,
     #[props(default = "button".to_string())] button_type: String,
     #[props(default = false)] disabled: bool,
@@ -74,7 +70,7 @@ pub fn Button(
     #[props(extends = GlobalAttributes)] attributes: Vec<Attribute>,
 ) -> Element {
     let base_classes = button_variants(variant, size);
-    let classes = cn(&base_classes, class.as_deref());
+    let classes = cn(&base_classes, &class);
 
     if let Some(href_val) = href {
         rsx! {

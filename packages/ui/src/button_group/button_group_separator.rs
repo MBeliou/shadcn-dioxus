@@ -1,5 +1,7 @@
 use dioxus::prelude::*;
 
+use crate::cn;
+
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum SeparatorOrientation {
     #[default]
@@ -24,19 +26,13 @@ impl SeparatorOrientation {
 }
 
 const SEPARATOR_BASE: &str = "bg-border shrink-0";
-const BUTTON_GROUP_SEPARATOR_CLASSES: &str = "bg-input relative !m-0 self-stretch data-[orientation=vertical]:h-auto";
-
-fn cn(base: &str, additional: Option<&str>) -> String {
-    match additional {
-        Some(extra) if !extra.is_empty() => format!("{} {}", base, extra),
-        _ => base.to_string(),
-    }
-}
+const BUTTON_GROUP_SEPARATOR_CLASSES: &str =
+    "bg-input relative !m-0 self-stretch data-[orientation=vertical]:h-auto";
 
 #[component]
 pub fn ButtonGroupSeparator(
     #[props(default)] orientation: SeparatorOrientation,
-    class: Option<String>,
+    #[props(into, default)] class: String,
     #[props(default = true)] decorative: bool,
     #[props(extends = GlobalAttributes)] attributes: Vec<Attribute>,
 ) -> Element {
@@ -46,7 +42,7 @@ pub fn ButtonGroupSeparator(
         orientation.base_class(),
         BUTTON_GROUP_SEPARATOR_CLASSES
     );
-    let classes = cn(&base_classes, class.as_deref());
+    let classes = cn(&base_classes, &class);
 
     let aria_orientation = if orientation == SeparatorOrientation::Vertical {
         Some("vertical")
