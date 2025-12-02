@@ -20,3 +20,6 @@ pub use button_group as ButtonGroup;
 
 pub mod spinner;
 pub use spinner::*;
+
+pub mod separator;
+pub use separator::Separator;

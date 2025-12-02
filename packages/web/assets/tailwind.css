@@ -596,9 +596,29 @@
       }
     }
   }
+  .data-\[orientation\=horizontal\]\:h-px {
+    &[data-orientation="horizontal"] {
+      height: 1px;
+    }
+  }
+  .data-\[orientation\=horizontal\]\:w-full {
+    &[data-orientation="horizontal"] {
+      width: 100%;
+    }
+  }
   .data-\[orientation\=vertical\]\:h-auto {
     &[data-orientation="vertical"] {
       height: auto;
+    }
+  }
+  .data-\[orientation\=vertical\]\:h-full {
+    &[data-orientation="vertical"] {
+      height: 100%;
+    }
+  }
+  .data-\[orientation\=vertical\]\:w-px {
+    &[data-orientation="vertical"] {
+      width: 1px;
     }
   }
   .\*\*\:data-\[slot\=button\]\:shadow-none {
