@@ -506,6 +506,10 @@
   .text-\[1\.05rem\] {
     font-size: 1.05rem;
   }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
   .leading-normal {
     --tw-leading: var(--leading-normal);
     line-height: var(--leading-normal);
