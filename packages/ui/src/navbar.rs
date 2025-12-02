@@ -19,6 +19,7 @@ pub fn Navbar(children: Element) -> Element {
                         variant: crate::ButtonVariant::Ghost,
                         href: "/",
                         img {
+                            class: "size-5",
                             src: ICON_SVG
                         }
                     },
