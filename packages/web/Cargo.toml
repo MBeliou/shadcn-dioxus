@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 dioxus = { workspace = true, features = ["router"] }
+lucide-dioxus = { version = "2.45.0", features = ["all-icons"] }
 ui = { workspace = true }
 
 [features]

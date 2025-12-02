@@ -34,7 +34,7 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-border: hsl(var(--border));
+    --color-border: var(--border);
   }
 }
 @layer base {
@@ -363,8 +363,8 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-border {
-    border-color: var(--color-border);
+  .border-border\! {
+    border-color: var(--color-border) !important;
   }
   .border-transparent {
     border-color: transparent;
@@ -1062,7 +1062,6 @@
 }
 @layer base {
   * {
-    border-color: hsl(var(--border));
     outline-color: var(--ring);
     @supports (color: color-mix(in lab, red, red)) {
       outline-color: color-mix(in oklab, var(--ring) 50%, transparent);

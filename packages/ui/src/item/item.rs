@@ -21,7 +21,8 @@ impl ItemVariant {
     pub fn class(&self) -> &'static str {
         match self {
             Self::Default => "bg-transparent",
-            Self::Outline => "border-border",
+            // FIXME: we'll need to port tailwind variants to rust to get rid of the important (!) here.
+            Self::Outline => "border-border!",
             Self::Muted => "bg-muted/50",
         }
     }

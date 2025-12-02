@@ -114,12 +114,12 @@
 }
 
 @theme {
-  --color-border: hsl(var(--border));
+  --color-border: var(--border);
 }
 
 @layer base {
   * {
-    @apply border-[hsl(var(--border))] outline-ring/50;
+    @apply outline-ring/50;
   }
   body,
   html,

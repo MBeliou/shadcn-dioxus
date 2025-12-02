@@ -1,5 +1,7 @@
 use dioxus::prelude::*;
-use ui::{Hero, Item, ItemContent, ItemTitle};
+use lucide_dioxus::ChevronRight;
+use ui::{Hero, Item, ItemActions, ItemContent, ItemTitle};
+
 #[component]
 pub fn Home() -> Element {
     rsx! {
@@ -18,6 +20,11 @@ pub fn Home() -> Element {
                                 ItemContent{
                                     ItemTitle{
                                         "Your profile has been verified."
+                                    }
+                                },
+                                ItemActions{
+                                    ChevronRight{
+                                        class: "size-4"
                                     }
                                 }
                                 // actions
