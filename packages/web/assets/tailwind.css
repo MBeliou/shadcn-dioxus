@@ -187,6 +187,10 @@
   }
 }
 @layer utilities {
+  .\@container\/card-header {
+    container-type: inline-size;
+    container-name: card-header;
+  }
   .relative {
     position: relative;
   }
@@ -324,8 +328,14 @@
   .scroll-m-20 {
     scroll-margin: calc(var(--spacing) * 20);
   }
+  .auto-rows-min {
+    grid-auto-rows: min-content;
+  }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-rows-\[auto_auto\] {
+    grid-template-rows: auto auto;
   }
   .flex-col {
     flex-direction: column;
@@ -693,6 +703,11 @@
       opacity: 50%;
     }
   }
+  .has-data-\[slot\=card-action\]\:grid-cols-\[1fr_auto\] {
+    &:has(*[data-slot="card-action"]) {
+      grid-template-columns: 1fr auto;
+    }
+  }
   .has-\[\>\[data-slot\=button-group\]\]\:gap-2 {
     &:has(>[data-slot=button-group]) {
       gap: calc(var(--spacing) * 2);
@@ -1000,6 +1015,11 @@
   .\[\&\+\[data-slot\=item-content\]\]\:flex-none {
     &+[data-slot=item-content] {
       flex: none;
+    }
+  }
+  .\[\.border-b\]\:pb-6 {
+    &:is(.border-b) {
+      padding-bottom: calc(var(--spacing) * 6);
     }
   }
   .\[a\]\:transition-colors {
