@@ -12,3 +12,6 @@ pub use item_content::*;
 
 mod item_title;
 pub use item_title::*;
+
+mod item_actions;
+pub use item_actions::*;

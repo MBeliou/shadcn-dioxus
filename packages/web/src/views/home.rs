@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use ui::{Hero, Item};
+use ui::{Hero, Item, ItemContent, ItemTitle};
 #[component]
 pub fn Home() -> Element {
     rsx! {
@@ -11,8 +11,15 @@ pub fn Home() -> Element {
                         div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",
                             "Demo coming soon",
                             Item {
+                                variant: ui::ItemVariant::Outline,
+                                size: ui::ItemSize::Sm,
                                 // media
                                 // content -> title
+                                ItemContent{
+                                    ItemTitle{
+                                        "Your profile has been verified."
+                                    }
+                                }
                                 // actions
                             }
                         }
