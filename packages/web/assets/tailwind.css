@@ -392,6 +392,9 @@
     --tw-border-style: dashed;
     border-style: dashed;
   }
+  .border-border {
+    border-color: var(--color-border);
+  }
   .border-border\! {
     border-color: var(--color-border) !important;
   }

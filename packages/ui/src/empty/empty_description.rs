@@ -19,6 +19,7 @@ pub fn EmptyDescription(props: EmptyDescriptionProps) -> Element {
         div {
             "data-slot": "empty-description",
             class: cn("text-muted-foreground [&>a:hover]:text-primary text-sm/relaxed [&>a]:underline [&>a]:underline-offset-4", &props.class),
+            {props.children}
         }
     }
 }

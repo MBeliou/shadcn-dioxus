@@ -19,6 +19,7 @@ pub fn EmptyTitle(props: EmptyTitleProps) -> Element {
         div {
             "data-slot": "empty-title",
             class: cn("text-lg font-medium tracking-tight", &props.class),
+            {props.children}
         }
     }
 }

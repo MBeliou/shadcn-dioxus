@@ -1,8 +1,8 @@
 use dioxus::prelude::*;
 use lucide_dioxus::{BadgeCheck, ChevronRight};
 use ui::{
-    Button, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle,
-    RenderFn,
+    Button, Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Hero, Item,
+    ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Spinner,
 };
 #[component]
 pub fn Home() -> Element {
@@ -24,6 +24,28 @@ pub fn Home() -> Element {
                                         variant: ui::ButtonVariant::Default,
                                         size: ui::ButtonSize::Sm,
                                         "Enable"
+                                    }
+                                }
+                            }
+                            Empty{
+                                class: "border",
+                                EmptyHeader{
+                                    EmptyMedia{
+                                        variant: ui::EmptyMediaVariant::Icon,
+                                        Spinner{
+
+                                        }
+                                    }
+                                    EmptyTitle{
+                                        "Processing your request"
+                                    }
+                                    EmptyDescription{
+                                        "Please wait while we process your request. Do not refresh the page."
+                                    }
+                                }
+                                EmptyContent{
+                                    Button {
+                                        "Cancel"
                                     }
                                 }
                             }
