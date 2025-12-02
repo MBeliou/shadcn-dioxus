@@ -18,6 +18,7 @@ pub fn Home() -> Element {
                                 as_child: RenderFn::new(|p, children| rsx! {
                                     a { class: "{p.class}", href: "#", {children} }
                                 }),
+
                                 ItemContent {
                                     ItemTitle { "Your profile has been verified." }
                                 }
