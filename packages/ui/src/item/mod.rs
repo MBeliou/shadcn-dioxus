@@ -19,10 +19,11 @@ pub use item_actions::*;
 mod item_media;
 pub use item_media::*;
 
+mod item_description;
+pub use item_description::*;
 
 /*
     Still unimplemented:
-    - Item Description
     - Item Footer
     - Item Header
 */
