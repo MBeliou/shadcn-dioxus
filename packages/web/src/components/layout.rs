@@ -1,5 +1,4 @@
 use dioxus::prelude::*;
-
 #[component]
 pub fn Layout() -> Element {
     rsx! {

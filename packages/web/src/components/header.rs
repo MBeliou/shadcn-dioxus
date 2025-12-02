@@ -1,6 +1,5 @@
 use dioxus::prelude::*;
 use ui::ButtonGroup;
-
 #[component]
 pub fn Header() -> Element {
     rsx! {
@@ -12,9 +11,7 @@ pub fn Header() -> Element {
                     }
                     ButtonGroup::Root {
                         ButtonGroup::Root {
-
                             ui::Button { variant: ui::ButtonVariant::Outline,
-                                // size: ui::ButtonSize::Icon,
                                 svg {
                                     class: "tabler-icon tabler-icon-copy",
                                     fill: "none",
@@ -49,7 +46,6 @@ pub fn Header() -> Element {
                                     path { d: "M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" }
                                 }
                             }
-                        
                         }
                     }
                 }
