@@ -119,7 +119,7 @@
 
 @layer base {
   * {
-    @apply outline-ring/50;
+    @apply border-[hsl(var(--border))] outline-ring/50;
   }
   body,
   html,
