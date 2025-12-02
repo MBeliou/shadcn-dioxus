@@ -12,3 +12,6 @@ pub use empty_description::*;
 
 mod empty_media;
 pub use empty_media::*;
+
+mod empty_content;
+pub use empty_content::*;
