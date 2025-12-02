@@ -1,6 +1,9 @@
 use dioxus::prelude::*;
 use lucide_dioxus::{BadgeCheck, ChevronRight};
-use ui::{Button, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn};
+use ui::{
+    Button, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle,
+    RenderFn,
+};
 #[component]
 pub fn Home() -> Element {
     rsx! {
@@ -10,25 +13,20 @@ pub fn Home() -> Element {
                 section { class: "theme-container",
                     div { class: "mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8",
                         div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",
-                            "Demo coming soon",
-                            Item {
-                                variant: ui::ItemVariant::Outline,
+                            "Demo coming soon"
+                            Item { variant: ui::ItemVariant::Outline,
                                 ItemContent {
-                                    ItemTitle{
-                                        "Two-factor authentication"
-                                    },
-                                    ItemDescription{
-                                        "Verify via email or phone number."
-                                    }
+                                    ItemTitle { "Two-factor authentication" }
+                                    ItemDescription { "Verify via email or phone number." }
                                 }
-                                ItemActions{
-                                    Button{
+                                ItemActions {
+                                    Button {
                                         variant: ui::ButtonVariant::Default,
                                         size: ui::ButtonSize::Sm,
                                         "Enable"
                                     }
                                 }
-                            },
+                            }
                             Item {
                                 variant: ui::ItemVariant::Outline,
                                 size: ui::ItemSize::Sm,
