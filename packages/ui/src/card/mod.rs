@@ -6,3 +6,6 @@ pub use card_title::*;
 
 mod card_header;
 pub use card_header::*;
+
+mod card_footer;
+pub use card_footer::*;
