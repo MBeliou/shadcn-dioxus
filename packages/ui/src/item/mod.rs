@@ -6,3 +6,6 @@ pub use item_separator::ItemSeparator;
 
 mod item_group;
 pub use item_group::ItemGroup;
+
+mod item_content;
+pub use item_content::*;
