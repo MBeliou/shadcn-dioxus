@@ -1,3 +1,3 @@
 mod separator;
 
-pub use separator::Separator;
+pub use separator::*;
