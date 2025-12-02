@@ -1,10 +1,15 @@
 use dioxus::prelude::*;
 
+use crate::cn;
 
 #[component]
-pub fn ItemSeparator() -> Element {
-    // TODO: implement base separator
+pub fn ItemGroup(#[props(into, default)] class: String) -> Element {
     rsx! {
+        div {
+            role: "list",
+            "data-slot": "item-group",
+            class: cn("group/item-group flex flex-col", &class)
+        }
 
     }
 }

@@ -1,14 +1,18 @@
 use dioxus::prelude::*;
 
-use crate::separator::Separator;
+use crate::{
+    cn,
+    separator::{Separator, SeparatorProps},
+};
 
 #[component]
-pub fn ItemSeparator() -> Element {
-    // TODO: implement base separator
+pub fn ItemSeparator(#[props(into, default)] class: String, props: SeparatorProps) -> Element {
     rsx! {
         Separator {
-            orientation: true,
-            
+            //"data-slot": "item-separator",
+            orientation: crate::separator::SeparatorOrientation::Horizontal,
+            class: cn("my-0", &class),
+            ..props
         }
     }
 }

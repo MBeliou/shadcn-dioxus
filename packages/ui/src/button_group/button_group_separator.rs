@@ -2,7 +2,6 @@ use dioxus::prelude::*;
 
 use crate::{cn, separator::SeparatorOrientation, Separator};
 
-const SEPARATOR_BASE: &str = "bg-border shrink-0";
 const BUTTON_GROUP_SEPARATOR_CLASSES: &str =
     "bg-input relative !m-0 self-stretch data-[orientation=vertical]:h-auto";
 
