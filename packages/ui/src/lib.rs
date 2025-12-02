@@ -1,6 +1,6 @@
 //! This crate contains all shared UI for the workspace.
 mod utils;
-pub use utils::cn;
+pub use utils::{cn, RenderFn};
 
 
 mod hero;

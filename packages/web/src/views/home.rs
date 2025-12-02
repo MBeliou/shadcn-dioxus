@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use lucide_dioxus::ChevronRight;
-use ui::{Hero, Item, ItemActions, ItemContent, ItemTitle};
+use ui::{Hero, Item, ItemActions, ItemContent, ItemTitle, RenderFn};
 
 #[component]
 pub fn Home() -> Element {
@@ -11,23 +11,19 @@ pub fn Home() -> Element {
                 section { class: "theme-container",
                     div { class: "mx-auto grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6 2xl:gap-8",
                         div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",
-                            "Demo coming soon",
+                            "Demo coming soon"
                             Item {
                                 variant: ui::ItemVariant::Outline,
                                 size: ui::ItemSize::Sm,
-                                // media
-                                // content -> title
-                                ItemContent{
-                                    ItemTitle{
-                                        "Your profile has been verified."
-                                    }
-                                },
-                                ItemActions{
-                                    ChevronRight{
-                                        class: "size-4"
-                                    }
+                                as_child: RenderFn::new(|p, children| rsx! {
+                                    a { class: "{p.class}", href: "#", {children} }
+                                }),
+                                ItemContent {
+                                    ItemTitle { "Your profile has been verified." }
                                 }
-                                // actions
+                                ItemActions {
+                                    ChevronRight { class: "size-4" }
+                                }
                             }
                         }
                     }

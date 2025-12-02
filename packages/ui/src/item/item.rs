@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::cn;
+use crate::{cn, utils::RenderFn};
 
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum ItemVariant {
@@ -69,10 +69,21 @@ pub struct ItemProps {
     #[props(into, default)]
     pub class: String,
 
+    //pub as_child: Option<fn(ItemChildProps, Element) -> Element>,
+    pub as_child: Option<RenderFn>,
+
     pub children: Element,
 
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
+}
+
+#[derive(Clone)]
+pub struct ItemChildProps {
+    pub class: String,
+    pub data_slot: &'static str,
+    pub data_variant: &'static str,
+    pub data_size: &'static str,
 }
 
 #[component]
@@ -80,14 +91,26 @@ pub fn Item(props: ItemProps) -> Element {
     let base_classes = item_variants(props.variant, props.size);
     let classes = cn(&base_classes, &props.class);
 
-    rsx! {
-        div {
-            "data-slot": "item",
-            "data-variant": props.variant.as_str(),
-            "data-size": props.size.as_str(),
-            class: "{classes}",
-            ..props.attributes,
-            {props.children}
+    // Implementing as_child is tricky in rust, we'll be using some "sane" defaults and hope for the best here.
+    if let Some(render) = props.as_child {
+        let child_props = ItemChildProps {
+            class: classes.clone(),
+            data_slot: "item",
+            data_variant: props.variant.as_str(),
+            data_size: props.size.as_str(),
+        };
+
+        render.0(child_props, props.children)
+    } else {
+        rsx! {
+            div {
+                "data-slot": "item",
+                "data-variant": props.variant.as_str(),
+                "data-size": props.size.as_str(),
+                class: "{classes}",
+                ..props.attributes,
+                {props.children}
+            }
         }
     }
 }
