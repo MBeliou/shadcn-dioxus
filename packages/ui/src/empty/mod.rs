@@ -9,3 +9,6 @@ pub use empty_title::*;
 
 mod empty_description;
 pub use empty_description::*;
+
+mod empty_media;
+pub use empty_media::*;

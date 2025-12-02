@@ -229,6 +229,9 @@
   .my-0 {
     margin-block: calc(var(--spacing) * 0);
   }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
   .line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;
@@ -956,6 +959,12 @@
     & svg:not([class*='size-']) {
       width: calc(var(--spacing) * 4);
       height: calc(var(--spacing) * 4);
+    }
+  }
+  .\[\&_svg\:not\(\[class\*\=\'size-\'\]\)\]\:size-6 {
+    & svg:not([class*='size-']) {
+      width: calc(var(--spacing) * 6);
+      height: calc(var(--spacing) * 6);
     }
   }
   .\[\&\+\[data-slot\=item-content\]\]\:flex-none {
