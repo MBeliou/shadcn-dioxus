@@ -33,3 +33,6 @@ pub use avatar::*;
 
 pub mod skeleton;
 pub use skeleton::*;
+
+pub mod badge;
+pub use badge::*;
