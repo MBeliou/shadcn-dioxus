@@ -1,7 +1,10 @@
 use dioxus::prelude::*;
 use lucide_dioxus::{BadgeCheck, ChevronRight, Plus};
 use ui::{
-    Avatar, AvatarFallback, AvatarImage, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator, Spinner
+    Avatar, AvatarFallback, AvatarImage, Button, Card, CardContent, CardDescription,
+    CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription,
+    EmptyHeader, EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent,
+    ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator, Spinner,
 };
 #[component]
 pub fn Home() -> Element {
@@ -42,48 +45,33 @@ pub fn Home() -> Element {
                             }
                         }
                         div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",
-                            Empty {
-                                class: "border border-solid border-border",
+                            Empty { class: "border border-solid border-border",
                                 EmptyHeader {
                                     EmptyMedia {
-                                        div {
-                                            class: "*:ring-background flex -space-x-2 *:size-12 *:ring-2 *:grayscale",
-                                        Avatar {
-                                            AvatarImage { src: "https://github.com/shadcn.png" }
-                                            AvatarFallback {
-                                                "Hey"
+                                        div { class: "*:ring-background flex -space-x-2 *:size-12 *:ring-2 *:grayscale",
+                                            Avatar {
+                                                AvatarImage { src: "https://github.com/shadcn.png" }
+                                                AvatarFallback { "Hey" }
+                                            }
+                                            Avatar {
+                                                AvatarImage { src: "https://github.com/shadcn.png" }
+                                                AvatarFallback { "Hey" }
+                                            }
+                                            Avatar {
+                                                AvatarImage { src: "https://github.com/shadcn.png" }
+                                                AvatarFallback { "Hey" }
                                             }
                                         }
-                                        Avatar {
-                                            AvatarImage { src: "https://github.com/shadcn.png" }
-                                            AvatarFallback {
-                                                "Hey"
-                                            }
-                                        }
-                                        Avatar {
-                                            AvatarImage { src: "https://github.com/shadcn.png" }
-                                            AvatarFallback {
-                                                "Hey"
-                                            }
-                                        }
-                                        }
-
                                     }
-                                    EmptyTitle {
-                                        "No Team Members"
-                                    }
-                                    EmptyDescription {
-                                        "Invite your team to collaborate on this project."
-                                    }
+                                    EmptyTitle { "No Team Members" }
+                                    EmptyDescription { "Invite your team to collaborate on this project." }
                                 }
                                 EmptyContent {
-                                    Button {
-                                        size: ui::ButtonSize::Sm,
-                                        Plus{},
+                                    Button { size: ui::ButtonSize::Sm,
+                                        Plus {}
                                         "Invite Members"
                                     }
                                 }
-                                
                             }
                         }
                         div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",

@@ -350,6 +350,9 @@
   .shrink-0 {
     flex-shrink: 0;
   }
+  .grow {
+    flex-grow: 1;
+  }
   .animate-spin {
     animation: var(--animate-spin);
   }

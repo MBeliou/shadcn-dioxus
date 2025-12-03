@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use ui::{ButtonVariant, Navbar};
+use ui::ButtonVariant;
 use views::{Blog, ButtonPage, ComponentView, Home};
 mod components;
 mod views;
@@ -33,7 +33,7 @@ fn App() -> Element {
 #[component]
 fn WebNavbar() -> Element {
     rsx! {
-        Navbar {
+        components::Navbar {
             Link {
                 class: ui::button_variants(ButtonVariant::Ghost, ui::ButtonSize::Default),
                 to: Route::Home {},
