@@ -5,10 +5,14 @@ edition = "2021"
 
 [dependencies]
 dioxus = { workspace = true, features = ["router"] }
+dioxus-markdown = { git = "https://github.com/rambip/rust-web-markdown", package = "dioxus-markdown" }
+gray_matter = { version = "0.3.2", default-features = false, features = [
+    "yaml",
+] }
 lucide-dioxus = { version = "2.45.0", features = ["all-icons"] }
+serde = { version = "1.0.228", features = ["derive"] }
 ui = { workspace = true }
 
 [features]
 default = ["web"]
 web = ["dioxus/web"]
-

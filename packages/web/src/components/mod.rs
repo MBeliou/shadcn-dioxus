@@ -6,3 +6,5 @@ mod navbar;
 pub use navbar::*;
 mod icons;
 pub use icons::GithubIcon;
+mod component_preview;
+pub use component_preview::*;

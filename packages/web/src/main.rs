@@ -1,7 +1,8 @@
 use dioxus::prelude::*;
 use ui::ButtonVariant;
-use views::{ButtonPage, ComponentView, Home};
+use views::{ButtonPage, ComponentView, Home, ComponentDoc};
 mod components;
+mod docs;
 mod views;
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
@@ -12,8 +13,8 @@ enum Route {
     #[layout(components::Layout)]
     #[route("/docs/component")]
     ComponentView {},
-    #[route("/docs/component/button")]
-    ButtonPage {},
+    #[route("/docs/component/:name")]
+    ComponentDoc { name: String },
 }
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");

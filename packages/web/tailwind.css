@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 @source "./src/**/*.{rs,html,css}";
 @source "../ui/src/**/*.{rs,html,css}";
 
@@ -137,6 +139,7 @@
   [role="button"]:not([disabled]) {
     cursor: pointer;
   }
+
 }
 
 @layer utilities {
