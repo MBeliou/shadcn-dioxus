@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
-use lucide_dioxus::{BadgeCheck, ChevronRight};
+use lucide_dioxus::{BadgeCheck, ChevronRight, Plus};
 use ui::{
-    Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator, Spinner
+    Avatar, AvatarFallback, AvatarImage, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator, Spinner
 };
 #[component]
 pub fn Home() -> Element {
@@ -20,37 +20,70 @@ pub fn Home() -> Element {
                                     CardTitle { "Payment Methods" }
                                     CardDescription { "All transactions are secure and encrypted" }
                                 }
-                                Separator {
-                                    orientation: ui::separator::SeparatorOrientation::Horizontal,
-                                }
+                                Separator { orientation: ui::separator::SeparatorOrientation::Horizontal }
                                 CardHeader {
                                     CardTitle { "Billing Address" }
                                     CardDescription { "The billing address associated with your payment method" }
                                 }
-                                Separator {
-                                    orientation: ui::separator::SeparatorOrientation::Horizontal,
-                                }
+                                Separator { orientation: ui::separator::SeparatorOrientation::Horizontal }
                                 CardContent {
-
-                                    div {
-                                        class: "mb-3 font-medium data-[variant=legend]:text-base data-[variant=label]:text-sm",
+                                    div { class: "mb-3 font-medium data-[variant=legend]:text-base data-[variant=label]:text-sm",
                                         "Comments"
                                     }
-                                    textarea {  
+                                    textarea {
                                         class: "border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive dark:bg-input/30 field-sizing-content shadow-xs flex min-h-16 w-full rounded-md border bg-transparent px-3 py-2 text-base outline-none transition-[color,box-shadow] focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
-                                        placeholder: "Add any additional comments"
+                                        placeholder: "Add any additional comments",
                                     }
                                 }
-                                CardFooter {
-                                    class: "space-x-2",
-                                    Button {
-                                        "Submit"
+                                CardFooter { class: "space-x-2",
+                                    Button { "Submit" }
+                                    Button { variant: ui::ButtonVariant::Secondary, "Cancel" }
+                                }
+                            }
+                        }
+                        div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",
+                            Empty {
+                                class: "border border-solid border-border",
+                                EmptyHeader {
+                                    EmptyMedia {
+                                        div {
+                                            class: "*:ring-background flex -space-x-2 *:size-12 *:ring-2 *:grayscale",
+                                        Avatar {
+                                            AvatarImage { src: "https://github.com/shadcn.png" }
+                                            AvatarFallback {
+                                                "Hey"
+                                            }
+                                        }
+                                        Avatar {
+                                            AvatarImage { src: "https://github.com/shadcn.png" }
+                                            AvatarFallback {
+                                                "Hey"
+                                            }
+                                        }
+                                        Avatar {
+                                            AvatarImage { src: "https://github.com/shadcn.png" }
+                                            AvatarFallback {
+                                                "Hey"
+                                            }
+                                        }
+                                        }
+
                                     }
-                                    Button {
-                                        variant: ui::ButtonVariant::Secondary,
-                                        "Cancel"
+                                    EmptyTitle {
+                                        "No Team Members"
+                                    }
+                                    EmptyDescription {
+                                        "Invite your team to collaborate on this project."
                                     }
                                 }
+                                EmptyContent {
+                                    Button {
+                                        size: ui::ButtonSize::Sm,
+                                        Plus{},
+                                        "Invite Members"
+                                    }
+                                }
+                                
                             }
                         }
                         div { class: "flex flex-col gap-6 *:[div]:w-full *:[div]:max-w-full",

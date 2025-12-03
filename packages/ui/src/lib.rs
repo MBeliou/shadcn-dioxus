@@ -33,3 +33,6 @@ pub use empty::*;
 
 pub mod card;
 pub use card::*;
+
+pub mod avatar;
+pub use avatar::*;
