@@ -1,5 +1,7 @@
 use dioxus::prelude::*;
 
+use crate::cn;
+
 #[derive(Clone, PartialEq, Props)]
 pub struct SkeletonProps {
     #[props(into, default)]
