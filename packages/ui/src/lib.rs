@@ -36,3 +36,6 @@ pub use skeleton::*;
 
 pub mod badge;
 pub use badge::*;
+
+pub mod input;
+pub use input::*;

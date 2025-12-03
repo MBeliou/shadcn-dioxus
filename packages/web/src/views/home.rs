@@ -3,8 +3,8 @@ use lucide_dioxus::{BadgeCheck, ChevronRight, Plus};
 use ui::{
     Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent, CardDescription,
     CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription, EmptyHeader,
-    EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia,
-    ItemTitle, RenderFn, Separator, Spinner,
+    EmptyMedia, EmptyTitle, Hero, Input, Item, ItemActions, ItemContent, ItemDescription,
+    ItemMedia, ItemTitle, RenderFn, Separator, Spinner,
 };
 #[component]
 pub fn Home() -> Element {
@@ -23,10 +23,20 @@ pub fn Home() -> Element {
                                     CardTitle { "Payment Methods" }
                                     CardDescription { "All transactions are secure and encrypted" }
                                 }
+                                CardContent{
+                                        label {
+                                            "Name on Card"
+                                        }
+                                        Input{
+                                            placeholder: "Evil Rabbit",
+                                            required: true
+                                        }
+                                    },
                                 Separator { orientation: ui::separator::SeparatorOrientation::Horizontal }
                                 CardHeader {
                                     CardTitle { "Billing Address" }
                                     CardDescription { "The billing address associated with your payment method" }
+
                                 }
                                 Separator { orientation: ui::separator::SeparatorOrientation::Horizontal }
                                 CardContent {
