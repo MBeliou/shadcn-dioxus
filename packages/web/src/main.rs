@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use ui::ButtonVariant;
-use views::{Blog, ButtonPage, ComponentView, Home};
+use views::{ButtonPage, ComponentView, Home};
 mod components;
 mod views;
 #[derive(Debug, Clone, Routable, PartialEq)]
@@ -14,8 +14,6 @@ enum Route {
     ComponentView {},
     #[route("/docs/component/button")]
     ButtonPage {},
-    #[route("/blog/:id")]
-    Blog { id: i32 },
 }
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
@@ -44,11 +42,7 @@ fn WebNavbar() -> Element {
                 to: Route::ComponentView {},
                 "Components"
             }
-            Link {
-                class: ui::button_variants(ButtonVariant::Ghost, ui::ButtonSize::Default),
-                to: Route::Blog { id: 1 },
-                "Blog"
-            }
+
         }
         Outlet::<Route> {}
     }
