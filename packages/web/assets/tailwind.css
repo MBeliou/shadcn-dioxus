@@ -34,6 +34,7 @@
     --leading-normal: 1.5;
     --leading-relaxed: 1.625;
     --animate-spin: spin 1s linear infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -353,6 +354,9 @@
   .grow {
     flex-grow: 1;
   }
+  .animate-pulse {
+    animation: var(--animate-pulse);
+  }
   .animate-spin {
     animation: var(--animate-spin);
   }
@@ -474,6 +478,9 @@
   }
   .border-transparent {
     border-color: transparent;
+  }
+  .bg-accent {
+    background-color: var(--accent);
   }
   .bg-background {
     background-color: var(--background);
@@ -1518,6 +1525,11 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
   }
 }
 @layer properties {

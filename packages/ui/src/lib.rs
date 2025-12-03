@@ -29,3 +29,7 @@ pub use card::*;
 
 pub mod avatar;
 pub use avatar::*;
+
+
+pub mod skeleton;
+pub use skeleton::*;
