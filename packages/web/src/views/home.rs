@@ -1,10 +1,11 @@
 use dioxus::prelude::*;
 use lucide_dioxus::{BadgeCheck, ChevronRight, Plus};
 use ui::{
-    Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent, CardDescription,
-    CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription, EmptyHeader,
-    EmptyMedia, EmptyTitle, Hero, Input, Item, ItemActions, ItemContent, ItemDescription,
-    ItemMedia, ItemTitle, RenderFn, Separator, Spinner,
+    Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent,
+    CardDescription, CardFooter, CardHeader, CardTitle, Empty, EmptyContent,
+    EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Hero, Input, Item,
+    ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator,
+    Spinner,
 };
 #[component]
 pub fn Home() -> Element {
@@ -23,20 +24,17 @@ pub fn Home() -> Element {
                                     CardTitle { "Payment Methods" }
                                     CardDescription { "All transactions are secure and encrypted" }
                                 }
-                                CardContent{
-                                        label {
-                                            "Name on Card"
-                                        }
-                                        Input{
-                                            placeholder: "Evil Rabbit",
-                                            required: true
-                                        }
-                                    },
+                                CardContent {
+                                    label { "Name on Card" }
+                                    Input {
+                                        placeholder: "Evil Rabbit",
+                                        required: true,
+                                    }
+                                }
                                 Separator { orientation: ui::separator::SeparatorOrientation::Horizontal }
                                 CardHeader {
                                     CardTitle { "Billing Address" }
                                     CardDescription { "The billing address associated with your payment method" }
-
                                 }
                                 Separator { orientation: ui::separator::SeparatorOrientation::Horizontal }
                                 CardContent {
@@ -83,24 +81,18 @@ pub fn Home() -> Element {
                                     }
                                 }
                             }
-                            div {
-                                class: "flex space-x-4",
+                            div { class: "flex space-x-4",
                                 Badge {
-                                    Spinner{},
+                                    Spinner {}
                                     "Syncing"
-
-                                },
-                                 Badge {
-                                    variant: ui::BadgeVariant::Secondary,
-                                    Spinner{},
+                                }
+                                Badge { variant: ui::BadgeVariant::Secondary,
+                                    Spinner {}
                                     "Updating"
-
-                                },
-                                 Badge {
-                                    variant: ui::BadgeVariant::Outline,
-                                    Spinner{},
+                                }
+                                Badge { variant: ui::BadgeVariant::Outline,
+                                    Spinner {}
                                     "Processing"
-
                                 }
                             }
                         }

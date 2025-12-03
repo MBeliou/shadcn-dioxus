@@ -42,7 +42,6 @@ fn WebNavbar() -> Element {
                 to: Route::ComponentView {},
                 "Components"
             }
-
         }
         Outlet::<Route> {}
     }
