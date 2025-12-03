@@ -1,10 +1,10 @@
 use dioxus::prelude::*;
 use lucide_dioxus::{BadgeCheck, ChevronRight, Plus};
 use ui::{
-    Avatar, AvatarFallback, AvatarImage, Button, Card, CardContent, CardDescription,
-    CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription,
-    EmptyHeader, EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent,
-    ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator, Spinner,
+    Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent, CardDescription,
+    CardFooter, CardHeader, CardTitle, Empty, EmptyContent, EmptyDescription, EmptyHeader,
+    EmptyMedia, EmptyTitle, Hero, Item, ItemActions, ItemContent, ItemDescription, ItemMedia,
+    ItemTitle, RenderFn, Separator, Spinner,
 };
 #[component]
 pub fn Home() -> Element {
@@ -71,6 +71,26 @@ pub fn Home() -> Element {
                                         Plus {}
                                         "Invite Members"
                                     }
+                                }
+                            }
+                            div {
+                                class: "flex space-x-4",
+                                Badge {
+                                    Spinner{},
+                                    "Syncing"
+
+                                },
+                                 Badge {
+                                    variant: ui::BadgeVariant::Secondary,
+                                    Spinner{},
+                                    "Updating"
+
+                                },
+                                 Badge {
+                                    variant: ui::BadgeVariant::Outline,
+                                    Spinner{},
+                                    "Processing"
+
                                 }
                             }
                         }
