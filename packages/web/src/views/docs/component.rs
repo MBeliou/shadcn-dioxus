@@ -73,7 +73,7 @@ pub fn ComponentDoc(name: String) -> Element {
             // Component exists in registry but no documentation yet
             rsx! {
                 div { class: "py-12",
-                    h1 { class: "scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl mb-4",
+                    h1 { class: "scroll-m-20 capitalize text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl mb-4",
                         "{name}"
                     }
                     div { class: "rounded-lg border border-border bg-muted/50 p-8 text-center",
