@@ -5,14 +5,10 @@ use dioxus_markdown::{CustomComponents, Markdown};
 
 #[component]
 pub fn ComponentDoc(name: String) -> Element {
-    let doc = use_memo({
-        let name = name.clone();
-        move || get_component_doc(&name).and_then(parse_doc)
-    });
-
+    let doc = get_component_doc(&name).and_then(parse_doc);
     let exists = component_exists(&name);
 
-    match (doc(), exists) {
+    match (doc, exists) {
         (Some(parsed), _) => {
             let mut custom_components = CustomComponents::new();
             custom_components
