@@ -1,62 +1,32 @@
-# Development
+<p align="center">
+  <img align="center" src="https://raw.githubusercontent.com/MBeliou/shadcn-dioxus/main/packages/web/assets/favicon-96x96.png" height="96" />
+  <h1 align="center">
+    shadcn-dioxus
+  </h1>
+</p>
 
-Your new workspace contains a member crate for each of the web, desktop and mobile platforms, and a `ui` crate for components that are shared between multiple platforms:
+[shadcn-dioxus](https://shadcn-dioxus.com/) is an unofficial community-led [Dioxus](https://dioxuslabs.com/) port of [shadcn/ui](https://ui.shadcn.com/).
 
-```
-your_project/
-├─ README.md
-├─ Cargo.toml
-└─ packages/
-   ├─ web/
-   │  └─ ... # Web specific UI/logic
-   ├─ desktop/
-   │  └─ ... # Desktop specific UI/logic
-   ├─ mobile/
-   │  └─ ... # Mobile specific UI/logic
-   └─  ui/
-      └─ ... # Component shared between multiple platforms
-```
+> **Note**
+> This is an unofficial project and is not affiliated with shadcn.
 
-## Platform crates
+Accessible and customizable components that you can copy and paste into your apps. Free. Open Source. **Use this to build your own component library**.
 
-Each platform crate contains the entry point for the platform, and any assets, components and dependencies that are specific to that platform. For example, the desktop crate in the workspace looks something like this:
+![hero](https://raw.githubusercontent.com/MBeliou/shadcn-dioxus/main/packages/web/assets/og.png)
 
-```
-desktop/ # The desktop crate contains all platform specific UI, logic and dependencies for the desktop app
-├─ assets/ # Assets used by the desktop app - Any platform specific assets should go in this folder
-├─ src/
-│  ├─ main.rs # The entrypoint for the desktop app. It also defines the routes for the desktop platform
-│  ├─ views/ # The views each route will render in the desktop version of the app
-│  │  ├─ mod.rs # Defines the module for the views route and re-exports the components for each route
-│  │  ├─ blog.rs # The component that will render at the /blog/:id route
-│  │  ├─ home.rs # The component that will render at the / route
-├─ Cargo.toml # The desktop crate's Cargo.toml - This should include all desktop specific dependencies
-```
+## Documentation
 
-When you start developing with the workspace setup each of the platform crates will look almost identical. The UI starts out exactly the same on all platforms. However, as you continue developing your application, this setup makes it easy to let the views for each platform change independently.
+Visit https://shadcn-dioxus.com/docs to view the documentation.
 
-## Shared UI crate
+## License
 
-The workspace contains a `ui` crate with components that are shared between multiple platforms. You should put any UI elements you want to use in multiple platforms in this crate. You can also put some shared client side logic in this crate, but be careful to not pull in platform specific dependencies. The `ui` crate starts out something like this:
+<!-- automd:contributors license=MIT author="MBeliou" -->
 
-```
-ui/
-├─ src/
-│  ├─ lib.rs # The entrypoint for the ui crate
-│  ├─ hero.rs # The Hero component that will be used in every platform
-│  ├─ navbar.rs # The Navbar component that will be used in the layout of every platform's router
-```
+Published under the [MIT](https://github.com/MBeliou/shadcn-dioxus/blob/main/LICENSE) license.
+Built by [@MBeliou](https://github.com/MBeliou) and [community](https://github.com/MBeliou/shadcn-dioxus/graphs/contributors)
+<br><br>
+<a href="https://github.com/MBeliou/shadcn-dioxus/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=MBeliou/shadcn-dioxus" />
+</a>
 
-### Serving Your App
-
-Navigate to the platform crate of your choice:
-```bash
-cd web
-```
-
-and serve:
-
-```bash
-dx serve
-```
-
+<!-- /automd -->
