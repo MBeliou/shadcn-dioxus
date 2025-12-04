@@ -14,7 +14,7 @@ pub fn Home() -> Element {
     rsx! {
         Hero {}
         div { class: "container mx-auto flex-1 pb-6",
-            div { class: "container overflow-hidden",
+            div { class: "container-wrapper overflow-hidden",
                 section { class: "theme-container",
                     div { class: "flex space-x-2",
                         Button { variant: ui::ButtonVariant::Ghost, "Examples" }
