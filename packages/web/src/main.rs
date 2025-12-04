@@ -21,11 +21,29 @@ enum Route {
     #[route("/:..route")]
     NotFound { route: Vec<String> },
 }
+
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!(
     "/assets/tailwind.css",
-    CssAssetOptions::new().with_preload(true)
+    CssAssetOptions::new()
+        .with_preload(true)
+        .with_hash_suffix(false)
+        
 );
+
+const _: Asset = asset!(
+    "/assets/og.png",
+    AssetOptions::image().with_hash_suffix(false)
+);
+const _: Asset = asset!(
+    "/assets/web-app-manifest-192x192.png",
+    AssetOptions::image().with_hash_suffix(false)
+);
+const _: Asset = asset!(
+    "/assets/web-app-manifest-512x512.png",
+    AssetOptions::image().with_hash_suffix(false)
+);
+
 fn main() {
     dioxus::launch(App);
 }
