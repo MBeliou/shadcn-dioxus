@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use ui::ButtonVariant;
-use views::{ButtonPage, ComponentView, Home, ComponentDoc};
+use views::{ButtonPage, ComponentDoc, ComponentView, Home};
 mod components;
 mod docs;
 mod views;
@@ -17,10 +17,14 @@ enum Route {
     ComponentDoc { name: String },
 }
 const FAVICON: Asset = asset!("/assets/favicon.ico");
-const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
+const TAILWIND_CSS: Asset = asset!(
+    "/assets/tailwind.css",
+    CssAssetOptions::new().with_preload(true)
+);
 fn main() {
     dioxus::launch(App);
 }
+
 #[component]
 fn App() -> Element {
     rsx! {

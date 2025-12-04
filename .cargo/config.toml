@@ -1,0 +1,16 @@
+[unstable]
+build-std = ["std", "panic_abort", "core", "alloc"]
+
+[build]
+rustflags = [
+    "-Zlocation-detail=none"
+]
+
+
+[profile.release]
+opt-level = "z"
+debug = false
+lto = true
+codegen-units = 1
+panic = "abort"
+incremental = false
