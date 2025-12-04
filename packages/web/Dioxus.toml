@@ -1,0 +1,5 @@
+[application]
+name = "The Component Library for Dioxus"
+
+[web.app]
+title = ""
