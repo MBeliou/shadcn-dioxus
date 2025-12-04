@@ -3,10 +3,12 @@ use lucide_dioxus::{BadgeCheck, ChevronRight, Plus};
 use ui::{
     Avatar, AvatarFallback, AvatarImage, Badge, Button, Card, CardContent,
     CardDescription, CardFooter, CardHeader, CardTitle, Empty, EmptyContent,
-    EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Hero, Input, Item,
+    EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Input, Item,
     ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator,
     Spinner,
 };
+use crate::components::Hero;
+
 #[component]
 pub fn Home() -> Element {
     rsx! {

@@ -2,8 +2,6 @@
 mod utils;
 pub use utils::{cn, RenderFn};
 
-mod hero;
-pub use hero::Hero;
 
 mod button;
 pub use button::*;

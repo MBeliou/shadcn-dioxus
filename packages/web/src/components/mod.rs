@@ -8,3 +8,5 @@ mod icons;
 pub use icons::GithubIcon;
 mod component_preview;
 pub use component_preview::*;
+mod hero;
+pub use hero::Hero;

@@ -4,6 +4,7 @@ use views::{ButtonPage, ComponentDoc, ComponentView, Home};
 mod components;
 mod docs;
 mod views;
+
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
 enum Route {
