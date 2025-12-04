@@ -16,6 +16,10 @@ enum Route {
     ComponentView {},
     #[route("/docs/components/:name")]
     ComponentDoc { name: String },
+    // Catch-all route - MUST be last
+    #[end_layout]
+    #[route("/:..route")]
+    NotFound { route: Vec<String> },
 }
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!(
@@ -50,5 +54,23 @@ fn WebNavbar() -> Element {
             }
         }
         Outlet::<Route> {}
+    }
+}
+
+#[component]
+fn NotFound(route: Vec<String>) -> Element {
+    let path = route.join("/");
+    rsx! {
+        div { class: "container mx-auto flex-1 py-12 text-center",
+            h1 { class: "text-4xl font-bold mb-4", "404" }
+            p { class: "text-muted-foreground mb-6",
+                "The page /{path} does not exist."
+            }
+            Link {
+                class: ui::button_variants(ButtonVariant::Default, ui::ButtonSize::Default),
+                to: Route::Home {},
+                "Go to Home"
+            }
+        }
     }
 }
