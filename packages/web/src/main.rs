@@ -12,9 +12,9 @@ enum Route {
     #[route("/")]
     Home {},
     #[layout(components::Layout)]
-    #[route("/docs/component")]
+    #[route("/docs/components")]
     ComponentView {},
-    #[route("/docs/component/:name")]
+    #[route("/docs/components/:name")]
     ComponentDoc { name: String },
 }
 const FAVICON: Asset = asset!("/assets/favicon.ico");

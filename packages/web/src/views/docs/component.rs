@@ -1,15 +1,19 @@
 use crate::components::ComponentPreview;
-use crate::docs::{loader::parse_doc, registry::get_component_doc};
+use crate::docs::{component_exists, loader::parse_doc, registry::get_component_doc};
 use dioxus::prelude::*;
-use dioxus_markdown::{CustomComponents, Markdown, Options};
+use dioxus_markdown::{CustomComponents, Markdown};
+
 #[component]
 pub fn ComponentDoc(name: String) -> Element {
     let doc = use_memo({
         let name = name.clone();
         move || get_component_doc(&name).and_then(parse_doc)
     });
-    match doc() {
-        Some(parsed) => {
+
+    let exists = component_exists(&name);
+
+    match (doc(), exists) {
+        (Some(parsed), _) => {
             let mut custom_components = CustomComponents::new();
             custom_components
                 .register(
@@ -69,7 +73,24 @@ pub fn ComponentDoc(name: String) -> Element {
                 }
             }
         }
-        None => {
+        (None, true) => {
+            // Component exists in registry but no documentation yet
+            rsx! {
+                div { class: "py-12",
+                    h1 { class: "scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl mb-4",
+                        "{name}"
+                    }
+                    div { class: "rounded-lg border border-border bg-muted/50 p-8 text-center",
+                        p { class: "text-muted-foreground text-lg", "Documentation coming soon." }
+                        p { class: "text-muted-foreground text-sm mt-2",
+                            "This component is available but documentation is still being written."
+                        }
+                    }
+                }
+            }
+        }
+        (None, false) => {
+            // Component doesn't exist at all
             rsx! {
                 div { class: "text-center py-12",
                     h1 { class: "text-2xl font-bold", "Component not found" }

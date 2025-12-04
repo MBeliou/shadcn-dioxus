@@ -1,12 +1,17 @@
-mod header;
-mod layout;
-pub use header::*;
-pub use layout::Layout;
-mod navbar;
-pub use navbar::*;
-mod icons;
-pub use icons::GithubIcon;
 mod component_preview;
-pub use component_preview::*;
+mod header;
 mod hero;
+mod icons;
+mod layout;
+mod navbar;
+mod sidebar;
+mod sidebar_nav;
+
+pub use component_preview::*;
+pub use header::*;
 pub use hero::Hero;
+pub use icons::GithubIcon;
+pub use layout::Layout;
+pub use navbar::*;
+pub use sidebar::*;
+pub use sidebar_nav::*;
