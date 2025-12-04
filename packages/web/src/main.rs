@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use ui::ButtonVariant;
-use views::{ButtonPage, ComponentDoc, ComponentView, Home};
+use views::{ComponentDoc, ComponentView, Home};
 mod components;
 mod docs;
 mod views;
