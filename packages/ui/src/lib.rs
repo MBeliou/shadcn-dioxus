@@ -37,3 +37,6 @@ pub use badge::*;
 
 pub mod input;
 pub use input::*;
+
+pub mod label;
+pub use label::*;
