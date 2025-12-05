@@ -14,6 +14,7 @@ pub fn get_component_doc(name: &str) -> Option<&'static str> {
         "item" => Some(include_str!("../content/components/item.md")),
         "empty" => Some(include_str!("../content/components/empty.md")),
         "button-group" => Some(include_str!("../content/components/button-group.md")),
+        "checkbox" => Some(include_str!("../content/components/checkbox.md")),
         _ => None,
     }
 }

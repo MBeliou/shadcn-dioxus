@@ -331,6 +331,33 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "checkbox-demo" => {
+            Some(
+                rsx! {
+                    Checkbox { default_checked: CheckboxState::Checked }
+                },
+            )
+        }
+        "checkbox-with-label" => {
+            Some(
+                rsx! {
+                    div { class: "flex items-center space-x-2",
+                        Checkbox { id: "terms" }
+                        Label { "for": "terms", "Accept terms and conditions" }
+                    }
+                },
+            )
+        }
+        "checkbox-disabled" => {
+            Some(
+                rsx! {
+                    div { class: "flex items-center space-x-2",
+                        Checkbox { id: "disabled", disabled: true, default_checked: CheckboxState::Checked }
+                        Label { "for": "disabled", "Disabled" }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }

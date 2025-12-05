@@ -26,6 +26,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         title: "Card",
     },
     ComponentMeta {
+        slug: "checkbox",
+        title: "Checkbox",
+    },
+    ComponentMeta {
         slug: "empty",
         title: "Empty",
     },

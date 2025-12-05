@@ -18,7 +18,7 @@ npx shadcn-dioxus add label
 use ui::Label;
 
 rsx! {
-    Label { r#for: "email", "Your email address" }
+    Label { "for": "email", "Your email address" }
 }
 ```
 
@@ -27,3 +27,9 @@ rsx! {
 ### Default
 
 <ComponentPreview name="label-demo"/>
+
+### With Checkbox
+
+Use the `Label` component alongside `Checkbox` to create an accessible checkbox with a label.
+
+<ComponentPreview name="checkbox-with-label"/>
