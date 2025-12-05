@@ -1,13 +1,12 @@
 use crate::docs::get_all_components;
 use crate::Route;
 use dioxus::prelude::*;
-use ui::cn;
+use ui::{button_variants, cn, ButtonSize, ButtonVariant};
+
 #[component]
 pub fn SidebarNav(
-    #[props(into, default)]
-    active_slug: String,
-    #[props(into, default)]
-    class: String,
+    #[props(into, default)] active_slug: String,
+    #[props(into, default)] class: String,
     /// Whether to use large text (for mobile popover)
     #[props(default = false)]
     large_text: bool,
@@ -41,17 +40,17 @@ fn SidebarLink(
         "text-sm py-1.5 px-2 rounded-md transition-colors"
     };
     let state_class = if is_active {
-        "font-medium text-foreground bg-accent"
+        "font-medium text-foreground bg-accent text-start justify-start"
     } else {
-        "text-muted-foreground hover:text-foreground hover:bg-accent"
+        "text-muted-foreground hover:text-foreground hover:bg-accent text-start justify-start"
     };
     rsx! {
         Link {
             to: Route::ComponentDoc {
                 name: slug.to_string(),
             },
-            class: cn(base_class, state_class),
-            "{title}"
+            class: cn(&button_variants(ButtonVariant::Ghost, ButtonSize::Sm), state_class),
+                "{title}"
         }
     }
 }
