@@ -42,6 +42,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         title: "Kbd",
     },
     ComponentMeta {
+        slug: "label",
+        title: "Label",
+    },
+    ComponentMeta {
         slug: "separator",
         title: "Separator",
     },
