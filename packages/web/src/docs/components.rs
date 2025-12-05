@@ -3,7 +3,6 @@ pub struct ComponentMeta {
     pub slug: &'static str,
     pub title: &'static str,
 }
-
 /// All available components. Components that do not exist are handled as well with a dedicated 404 page
 const COMPONENTS: &[ComponentMeta] = &[
     ComponentMeta {
@@ -55,11 +54,9 @@ const COMPONENTS: &[ComponentMeta] = &[
         title: "Spinner",
     },
 ];
-
 pub fn get_all_components() -> &'static [ComponentMeta] {
     COMPONENTS
 }
-
 pub fn component_exists(slug: &str) -> bool {
     COMPONENTS.iter().any(|c| c.slug == slug)
 }

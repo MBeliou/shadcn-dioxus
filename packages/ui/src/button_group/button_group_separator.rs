@@ -1,23 +1,23 @@
 use dioxus::prelude::*;
-
 use crate::{cn, separator::SeparatorOrientation, Separator};
-
-const BUTTON_GROUP_SEPARATOR_CLASSES: &str =
-    "bg-input relative !m-0 self-stretch data-[orientation=vertical]:h-auto";
-
+const BUTTON_GROUP_SEPARATOR_CLASSES: &str = "bg-input relative !m-0 self-stretch data-[orientation=vertical]:h-auto";
 #[component]
 pub fn ButtonGroupSeparator(
-    #[props(default)] orientation: SeparatorOrientation,
-    #[props(into, default)] class: String,
-    #[props(default = true)] decorative: bool,
-    #[props(extends = GlobalAttributes)] attributes: Vec<Attribute>,
+    #[props(default)]
+    orientation: SeparatorOrientation,
+    #[props(into, default)]
+    class: String,
+    #[props(default = true)]
+    decorative: bool,
+    #[props(extends = GlobalAttributes)]
+    attributes: Vec<Attribute>,
 ) -> Element {
     rsx! {
-        Separator{
+        Separator {
             "data-slot": "button-group-separator",
-            orientation: orientation,
+            orientation,
             class: cn(BUTTON_GROUP_SEPARATOR_CLASSES, &class),
-            attributes
+            attributes,
         }
     }
 }

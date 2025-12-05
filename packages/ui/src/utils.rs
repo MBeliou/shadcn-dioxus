@@ -1,6 +1,5 @@
 use crate::ItemChildProps;
 use dioxus::prelude::*;
-
 pub fn cn(base: &str, additional: &str) -> String {
     if additional.is_empty() {
         base.to_string()
@@ -8,13 +7,11 @@ pub fn cn(base: &str, additional: &str) -> String {
         format!("{} {}", base, additional)
     }
 }
-
 #[derive(Clone)]
 pub struct RenderFn(pub fn(ItemChildProps, Element) -> Element);
-
 impl PartialEq for RenderFn {
     fn eq(&self, _other: &Self) -> bool {
-        false // Always triggers re-render
+        false
     }
 }
 impl RenderFn {

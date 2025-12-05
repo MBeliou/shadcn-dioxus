@@ -1,7 +1,5 @@
 use dioxus::prelude::*;
-
 use crate::cn;
-
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum ButtonVariant {
     #[default]
@@ -12,7 +10,6 @@ pub enum ButtonVariant {
     Ghost,
     Link,
 }
-
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum ButtonSize {
     #[default]
@@ -23,20 +20,28 @@ pub enum ButtonSize {
     IconSm,
     IconLg,
 }
-
 impl ButtonVariant {
     pub fn class(&self) -> &'static str {
         match self {
-            Self::Default => "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-            Self::Destructive => "bg-destructive shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 text-white",
-            Self::Outline => "bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border",
-            Self::Secondary => "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-            Self::Ghost => "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+            Self::Default => {
+                "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90"
+            }
+            Self::Destructive => {
+                "bg-destructive shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 text-white"
+            }
+            Self::Outline => {
+                "bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border"
+            }
+            Self::Secondary => {
+                "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80"
+            }
+            Self::Ghost => {
+                "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50"
+            }
             Self::Link => "text-primary underline-offset-4 hover:underline",
         }
     }
 }
-
 impl ButtonSize {
     pub fn class(&self) -> &'static str {
         match self {
@@ -49,29 +54,30 @@ impl ButtonSize {
         }
     }
 }
-
 const BASE_CLASSES: &str = "focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0";
-
 pub fn button_variants(variant: ButtonVariant, size: ButtonSize) -> String {
     format!("{} {} {}", BASE_CLASSES, variant.class(), size.class())
 }
-
-
 #[component]
 pub fn Button(
-    #[props(default)] variant: ButtonVariant,
-    #[props(default)] size: ButtonSize,
-        #[props(into, default)] class: String,
+    #[props(default)]
+    variant: ButtonVariant,
+    #[props(default)]
+    size: ButtonSize,
+    #[props(into, default)]
+    class: String,
     href: Option<String>,
-    #[props(default = "button".to_string())] button_type: String,
-    #[props(default = false)] disabled: bool,
+    #[props(default = "button".to_string())]
+    button_type: String,
+    #[props(default = false)]
+    disabled: bool,
     onclick: Option<EventHandler<MouseEvent>>,
     children: Element,
-    #[props(extends = GlobalAttributes)] attributes: Vec<Attribute>,
+    #[props(extends = GlobalAttributes)]
+    attributes: Vec<Attribute>,
 ) -> Element {
     let base_classes = button_variants(variant, size);
     let classes = cn(&base_classes, &class);
-
     if let Some(href_val) = href {
         rsx! {
             a {
@@ -96,7 +102,7 @@ pub fn Button(
                 "data-slot": "button",
                 class: "{classes}",
                 r#type: "{button_type}",
-                disabled: disabled,
+                disabled,
                 onclick: move |evt| {
                     if let Some(handler) = &onclick {
                         handler.call(evt);

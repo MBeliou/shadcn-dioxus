@@ -5,7 +5,6 @@ mod components;
 mod demos;
 mod docs;
 mod views;
-
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
 enum Route {
@@ -17,38 +16,25 @@ enum Route {
     ComponentView {},
     #[route("/docs/components/:name")]
     ComponentDoc { name: String },
-    // Catch-all route - MUST be last
     #[end_layout]
     #[route("/:..route")]
     NotFound { route: Vec<String> },
 }
-
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!(
-    "/assets/tailwind.css",
-    CssAssetOptions::new()
-        .with_preload(true)
-        .with_hash_suffix(false)
-        
+    "/assets/tailwind.css", CssAssetOptions::new().with_preload(true)
+    .with_hash_suffix(false)
 );
-
+const _: Asset = asset!("/assets/og.png", AssetOptions::image().with_hash_suffix(false));
 const _: Asset = asset!(
-    "/assets/og.png",
-    AssetOptions::image().with_hash_suffix(false)
+    "/assets/web-app-manifest-192x192.png", AssetOptions::image().with_hash_suffix(false)
 );
 const _: Asset = asset!(
-    "/assets/web-app-manifest-192x192.png",
-    AssetOptions::image().with_hash_suffix(false)
+    "/assets/web-app-manifest-512x512.png", AssetOptions::image().with_hash_suffix(false)
 );
-const _: Asset = asset!(
-    "/assets/web-app-manifest-512x512.png",
-    AssetOptions::image().with_hash_suffix(false)
-);
-
 fn main() {
     dioxus::launch(App);
 }
-
 #[component]
 fn App() -> Element {
     rsx! {
@@ -75,16 +61,13 @@ fn WebNavbar() -> Element {
         Outlet::<Route> {}
     }
 }
-
 #[component]
 fn NotFound(route: Vec<String>) -> Element {
     let path = route.join("/");
     rsx! {
         div { class: "container mx-auto flex-1 py-12 text-center",
             h1 { class: "text-4xl font-bold mb-4", "404" }
-            p { class: "text-muted-foreground mb-6",
-                "The page /{path} does not exist."
-            }
+            p { class: "text-muted-foreground mb-6", "The page /{path} does not exist." }
             Link {
                 class: ui::button_variants(ButtonVariant::Default, ui::ButtonSize::Default),
                 to: Route::Home {},

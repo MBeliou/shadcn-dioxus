@@ -1,21 +1,16 @@
 use dioxus::prelude::*;
-
 use crate::{cn, AvatarCtx, AvatarLoadingStatus};
-
 #[derive(Props, Clone, PartialEq)]
-pub struct AvatarImageProps  {
+pub struct AvatarImageProps {
     pub src: String,
     #[props(default)]
     pub alt: String,
-
     #[props(extends = img)]
-    pub attributes: Vec<Attribute>
+    pub attributes: Vec<Attribute>,
 }
-
 #[component]
 pub fn AvatarImage(props: AvatarImageProps) -> Element {
     let mut avatarCtx = use_context::<AvatarCtx>();
-
     let handle_load = move |_| {
         avatarCtx.state.set(AvatarLoadingStatus::Loaded);
     };
@@ -28,7 +23,7 @@ pub fn AvatarImage(props: AvatarImageProps) -> Element {
             alt: props.alt,
             onload: handle_load,
             onerror: handle_error,
-            ..props.attributes
+            ..props.attributes,
         }
     }
 }

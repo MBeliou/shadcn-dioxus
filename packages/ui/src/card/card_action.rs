@@ -1,18 +1,13 @@
 use dioxus::prelude::*;
-
 use crate::cn;
-
 #[derive(Clone, PartialEq, Props)]
 pub struct CardActionProps {
     #[props(into, default)]
     pub class: String,
-
     pub children: Element,
-
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
 }
-
 #[component]
 pub fn CardAction(props: CardActionProps) -> Element {
     rsx! {
@@ -24,5 +19,3 @@ pub fn CardAction(props: CardActionProps) -> Element {
         }
     }
 }
-
-    

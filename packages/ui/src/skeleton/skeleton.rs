@@ -1,16 +1,12 @@
 use dioxus::prelude::*;
-
 use crate::cn;
-
 #[derive(Clone, PartialEq, Props)]
 pub struct SkeletonProps {
     #[props(into, default)]
     pub class: String,
-
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
 }
-
 #[component]
 pub fn Skeleton(props: SkeletonProps) -> Element {
     rsx! {

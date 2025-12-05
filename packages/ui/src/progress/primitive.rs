@@ -1,6 +1,4 @@
 use dioxus::prelude::*;
-
-
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum ProgressState {
     #[default]
@@ -8,7 +6,6 @@ pub enum ProgressState {
     Loading,
     Loaded,
 }
-
 impl ProgressState {
     pub fn as_str(&self) -> &'static str {
         match self {
@@ -18,7 +15,6 @@ impl ProgressState {
         }
     }
 }
-
 pub fn get_progress_state(value: Option<f64>, max: f64) -> ProgressState {
     match value {
         None => ProgressState::Indeterminate,
@@ -26,32 +22,24 @@ pub fn get_progress_state(value: Option<f64>, max: f64) -> ProgressState {
         Some(_) => ProgressState::Loading,
     }
 }
-
 #[derive(Props, Clone, PartialEq)]
 pub struct ProgressPrimitiveProps {
     /// Current progress value (None = indeterminate)
     #[props(default)]
     pub value: Option<f64>,
-
     #[props(default = 100.0)]
     pub max: f64,
-
     #[props(default = 0.0)]
     pub min: f64,
-
     #[props(into, default)]
     pub class: String,
-
     pub children: Element,
-
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
 }
-
 #[component]
 pub fn ProgressPrimitive(props: ProgressPrimitiveProps) -> Element {
     let state = get_progress_state(props.value, props.max);
-
     rsx! {
         div {
             role: "progressbar",

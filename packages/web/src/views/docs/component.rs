@@ -2,12 +2,10 @@ use crate::components::ComponentPreview;
 use crate::docs::{component_exists, loader::parse_doc, registry::get_component_doc};
 use dioxus::prelude::*;
 use dioxus_markdown::{CustomComponents, Markdown};
-
 #[component]
 pub fn ComponentDoc(name: String) -> Element {
     let doc = get_component_doc(&name).and_then(parse_doc);
     let exists = component_exists(&name);
-
     match (doc, exists) {
         (Some(parsed), _) => {
             let mut custom_components = CustomComponents::new();
@@ -70,7 +68,6 @@ pub fn ComponentDoc(name: String) -> Element {
             }
         }
         (None, true) => {
-            // Component exists in registry but no documentation yet
             rsx! {
                 div { class: "py-12",
                     h1 { class: "scroll-m-20 capitalize text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl mb-4",
@@ -86,7 +83,6 @@ pub fn ComponentDoc(name: String) -> Element {
             }
         }
         (None, false) => {
-            // Component doesn't exist at all
             rsx! {
                 div { class: "text-center py-12",
                     h1 { class: "text-2xl font-bold", "Component not found" }

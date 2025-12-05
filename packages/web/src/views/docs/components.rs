@@ -1,11 +1,9 @@
 use crate::docs::get_all_components;
 use crate::Route;
 use dioxus::prelude::*;
-
 #[component]
 pub fn ComponentView() -> Element {
     let components = get_all_components();
-
     rsx! {
         div { class: "flex flex-col gap-8",
             div { class: "flex flex-col gap-2",
@@ -21,7 +19,9 @@ pub fn ComponentView() -> Element {
             div { class: "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20",
                 for component in components {
                     Link {
-                        to: Route::ComponentDoc { name: component.slug.to_string() },
+                        to: Route::ComponentDoc {
+                            name: component.slug.to_string(),
+                        },
                         class: "flex items-center gap-2 text-lg font-medium underline-offset-4 hover:underline md:text-base",
                         "{component.title}"
                     }
