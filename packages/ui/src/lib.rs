@@ -29,3 +29,6 @@ pub mod progress;
 pub use progress::*;
 pub mod kbd;
 pub use kbd::*;
+
+pub mod checkbox;
+pub use checkbox::*;
