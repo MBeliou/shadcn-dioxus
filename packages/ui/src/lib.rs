@@ -40,3 +40,6 @@ pub use input::*;
 
 pub mod label;
 pub use label::*;
+
+pub mod progress;
+pub use progress::*;
