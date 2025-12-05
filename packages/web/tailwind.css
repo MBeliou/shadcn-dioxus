@@ -116,13 +116,9 @@
   --color-green-accent: var(--green-accent);
 }
 
-@theme {
-  --color-border: var(--border);
-}
-
 @layer base {
   * {
-    @apply border-[hsl(var(--border))] outline-ring/50;
+    @apply border-border outline-ring/50;
   }
   body,
   html,
