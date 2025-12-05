@@ -61,6 +61,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         slug: "spinner",
         title: "Spinner",
     },
+    ComponentMeta {
+        slug: "textarea",
+        title: "Textarea",
+    },
 ];
 pub fn get_all_components() -> &'static [ComponentMeta] {
     COMPONENTS

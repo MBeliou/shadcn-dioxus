@@ -358,6 +358,40 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "textarea-demo" => {
+            Some(
+                rsx! {
+                    Textarea { placeholder: "Type your message here." }
+                },
+            )
+        }
+        "textarea-disabled" => {
+            Some(
+                rsx! {
+                    Textarea { placeholder: "Type your message here.", disabled: true }
+                },
+            )
+        }
+        "textarea-with-label" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full gap-1.5",
+                        Label { "for": "message", "Your message" }
+                        Textarea { placeholder: "Type your message here.", id: "message" }
+                    }
+                },
+            )
+        }
+        "textarea-with-button" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full gap-2",
+                        Textarea { placeholder: "Type your message here." }
+                        Button { "Send message" }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }
