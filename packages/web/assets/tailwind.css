@@ -197,6 +197,9 @@
     container-type: inline-size;
     container-name: card-header;
   }
+  .pointer-events-none {
+    pointer-events: none;
+  }
   .relative {
     position: relative;
   }
@@ -250,6 +253,9 @@
   }
   .my-0 {
     margin-block: calc(var(--spacing) * 0);
+  }
+  .my-4 {
+    margin-block: calc(var(--spacing) * 4);
   }
   .my-6 {
     margin-block: calc(var(--spacing) * 6);
@@ -737,6 +743,15 @@
   .h-\(--header-height\) {
     height: var(--header-height);
   }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -746,8 +761,14 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
   .h-\[calc\(100vh-var\(--header-height\)\)\] {
     height: calc(100vh - var(--header-height));
+  }
+  .h-full {
+    height: 100%;
   }
   .h-px {
     height: 1px;
@@ -761,8 +782,23 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
+  }
   .w-64 {
     width: calc(var(--spacing) * 64);
+  }
+  .w-\[60\%\] {
+    width: 60%;
+  }
+  .w-\[200px\] {
+    width: 200px;
+  }
+  .w-\[250px\] {
+    width: 250px;
+  }
+  .w-\[350px\] {
+    width: 350px;
   }
   .w-fit {
     width: fit-content;
@@ -794,6 +830,9 @@
   .min-w-0 {
     min-width: calc(var(--spacing) * 0);
   }
+  .min-w-5 {
+    min-width: calc(var(--spacing) * 5);
+  }
   .flex-1 {
     flex: 1;
   }
@@ -802,6 +841,9 @@
   }
   .grow {
     flex-grow: 1;
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .animate-pulse {
     animation: var(--animate-pulse);
@@ -862,6 +904,20 @@
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
+  }
+  .space-y-1 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-2 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
+    }
   }
   .-space-x-2 {
     :where(& > :not(:last-child)) {
@@ -975,6 +1031,12 @@
   .bg-primary {
     background-color: var(--primary);
   }
+  .bg-primary\/20 {
+    background-color: var(--primary);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--primary) 20%, transparent);
+    }
+  }
   .bg-secondary {
     background-color: var(--secondary);
   }
@@ -989,6 +1051,9 @@
   }
   .p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+  .px-1 {
+    padding-inline: calc(var(--spacing) * 1);
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
@@ -1043,6 +1108,9 @@
   }
   .text-center {
     text-align: center;
+  }
+  .font-sans {
+    font-family: var(--font-sans);
   }
   .text-2xl {
     font-size: var(--text-2xl);
@@ -1181,6 +1249,10 @@
     --tw-outline-style: none;
     outline-style: none;
   }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
+  }
   .\*\:size-12 {
     :is(& > *) {
       width: calc(var(--spacing) * 12);
@@ -1213,6 +1285,26 @@
   .group-has-\[\[data-slot\=item-description\]\]\/item\:self-start {
     &:is(:where(.group\/item):has(*:is([data-slot=item-description])) *) {
       align-self: flex-start;
+    }
+  }
+  .group-data-\[disabled\=true\]\:pointer-events-none {
+    &:is(:where(.group)[data-disabled="true"] *) {
+      pointer-events: none;
+    }
+  }
+  .group-data-\[disabled\=true\]\:opacity-50 {
+    &:is(:where(.group)[data-disabled="true"] *) {
+      opacity: 50%;
+    }
+  }
+  .peer-disabled\:cursor-not-allowed {
+    &:is(:where(.peer):disabled ~ *) {
+      cursor: not-allowed;
+    }
+  }
+  .peer-disabled\:opacity-50 {
+    &:is(:where(.peer):disabled ~ *) {
+      opacity: 50%;
     }
   }
   .selection\:bg-primary {
@@ -1334,6 +1426,19 @@
   .disabled\:opacity-50 {
     &:disabled {
       opacity: 50%;
+    }
+  }
+  .in-data-\[slot\=tooltip-content\]\:bg-background\/20 {
+    :where(*[data-slot="tooltip-content"]) & {
+      background-color: var(--background);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--background) 20%, transparent);
+      }
+    }
+  }
+  .in-data-\[slot\=tooltip-content\]\:text-background {
+    :where(*[data-slot="tooltip-content"]) & {
+      color: var(--background);
     }
   }
   .has-data-\[slot\=card-action\]\:grid-cols-\[1fr_auto\] {
@@ -1661,6 +1766,16 @@
       }
     }
   }
+  .dark\:in-data-\[slot\=tooltip-content\]\:bg-background\/10 {
+    &:is(.dark *) {
+      :where(*[data-slot="tooltip-content"]) & {
+        background-color: var(--background);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--background) 10%, transparent);
+        }
+      }
+    }
+  }
   .dark\:aria-invalid\:ring-destructive\/40 {
     &:is(.dark *) {
       &[aria-invalid="true"] {
@@ -1690,6 +1805,12 @@
   .\[\&_svg\]\:shrink-0 {
     & svg {
       flex-shrink: 0;
+    }
+  }
+  .\[\&_svg\:not\(\[class\*\=\'size-\'\]\)\]\:size-3 {
+    & svg:not([class*='size-']) {
+      width: calc(var(--spacing) * 3);
+      height: calc(var(--spacing) * 3);
     }
   }
   .\[\&_svg\:not\(\[class\*\=\'size-\'\]\)\]\:size-4 {
@@ -1995,6 +2116,31 @@
     --header-height: calc(var(--spacing) * 14);
   }
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
 @property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
@@ -2172,6 +2318,12 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
       --tw-space-x-reverse: 0;
       --tw-border-style: solid;
       --tw-leading: initial;

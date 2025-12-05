@@ -2,6 +2,7 @@ use dioxus::prelude::*;
 use ui::ButtonVariant;
 use views::{ComponentDoc, ComponentView, Home};
 mod components;
+mod demos;
 mod docs;
 mod views;
 

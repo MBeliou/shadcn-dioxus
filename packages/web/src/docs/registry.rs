@@ -1,6 +1,19 @@
 pub fn get_component_doc(name: &str) -> Option<&'static str> {
     match name {
         "button" => Some(include_str!("../content/components/button.md")),
+        "badge" => Some(include_str!("../content/components/badge.md")),
+        "card" => Some(include_str!("../content/components/card.md")),
+        "avatar" => Some(include_str!("../content/components/avatar.md")),
+        "input" => Some(include_str!("../content/components/input.md")),
+        "label" => Some(include_str!("../content/components/label.md")),
+        "progress" => Some(include_str!("../content/components/progress.md")),
+        "separator" => Some(include_str!("../content/components/separator.md")),
+        "skeleton" => Some(include_str!("../content/components/skeleton.md")),
+        "spinner" => Some(include_str!("../content/components/spinner.md")),
+        "kbd" => Some(include_str!("../content/components/kbd.md")),
+        "item" => Some(include_str!("../content/components/item.md")),
+        "empty" => Some(include_str!("../content/components/empty.md")),
+        "button-group" => Some(include_str!("../content/components/button-group.md")),
         _ => None,
     }
 }
