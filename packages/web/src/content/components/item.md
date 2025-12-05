@@ -233,17 +233,3 @@ rsx! {
 }
 ```
 
-## Structure
-
-The Item component consists of:
-
-- **ItemGroup** - Container for multiple items with `role="list"`
-- **Item** - Main flex container
-- **ItemHeader** - Top section for media/images
-- **ItemFooter** - Bottom section
-- **ItemMedia** - Icon, avatar, or image container
-- **ItemContent** - Primary text area
-- **ItemTitle** - Heading text
-- **ItemDescription** - Secondary text
-- **ItemActions** - Interactive elements area
-- **ItemSeparator** - Visual divider between items
