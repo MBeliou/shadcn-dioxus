@@ -9,7 +9,7 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add label
 ```
 
 ## Usage
@@ -18,19 +18,12 @@ No easy installation yet
 use ui::Label;
 
 rsx! {
-    Label { "Email" }
+    Label { r#for: "email", "Your email address" }
 }
 ```
 
-## With Input
+## Examples
 
-```rust
-use ui::{Label, Input};
+### Default
 
-rsx! {
-    div { class: "grid w-full max-w-sm items-center gap-1.5",
-        Label { r#for: "email", "Email" }
-        Input { r#type: InputType::Email, id: "email", placeholder: "Email" }
-    }
-}
-```
+<ComponentPreview name="label-demo"/>

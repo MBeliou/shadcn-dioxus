@@ -9,7 +9,7 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add progress
 ```
 
 ## Usage
@@ -18,11 +18,15 @@ No easy installation yet
 use ui::Progress;
 
 rsx! {
-    Progress { value: 60.0 }
+    Progress { value: 33.0 }
 }
 ```
 
 ## Examples
+
+### Default
+
+<ComponentPreview name="progress-demo"/>
 
 ### Indeterminate
 

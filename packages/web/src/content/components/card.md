@@ -9,7 +9,7 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add card
 ```
 
 ## Usage
@@ -21,13 +21,13 @@ rsx! {
     Card {
         CardHeader {
             CardTitle { "Card Title" }
-            CardDescription { "Card description." }
+            CardDescription { "Card Description" }
         }
         CardContent {
-            p { "Card content goes here." }
+            p { "Card Content" }
         }
         CardFooter {
-            Button { "Action" }
+            p { "Card Footer" }
         }
     }
 }
@@ -37,10 +37,16 @@ rsx! {
 
 The Card component is a compound component with the following parts:
 
-- `Card` - The container
-- `CardHeader` - Header section
-- `CardTitle` - Title within header
-- `CardDescription` - Description within header
-- `CardContent` - Main content area
-- `CardFooter` - Footer section
-- `CardAction` - Action buttons area
+- `Card` - The main container
+- `CardHeader` - Contains the title and description
+- `CardTitle` - The card title
+- `CardDescription` - A muted description below the title
+- `CardContent` - The main content area
+- `CardFooter` - The footer area for actions
+- `CardAction` - Optional action element in the header
+
+## Examples
+
+### Default
+
+<ComponentPreview name="card-demo"/>

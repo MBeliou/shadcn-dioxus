@@ -9,7 +9,7 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add separator
 ```
 
 ## Usage
@@ -24,6 +24,12 @@ rsx! {
 
 ## Examples
 
+### Default
+
+<ComponentPreview name="separator-demo"/>
+
 ### Vertical
+
+Use the `orientation` prop to create a vertical separator.
 
 <ComponentPreview name="separator-vertical"/>

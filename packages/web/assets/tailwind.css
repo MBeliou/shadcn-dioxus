@@ -7,6 +7,9 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-sm: 24rem;
@@ -717,8 +720,15 @@
   .inline-flex {
     display: inline-flex;
   }
+  .table {
+    display: table;
+  }
   .field-sizing-content {
     field-sizing: content;
+  }
+  .size-3 {
+    width: calc(var(--spacing) * 3);
+    height: calc(var(--spacing) * 3);
   }
   .size-4 {
     width: calc(var(--spacing) * 4);
@@ -727,6 +737,10 @@
   .size-5 {
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
+  }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
   }
   .size-8 {
     width: calc(var(--spacing) * 8);
@@ -739,6 +753,10 @@
   .size-10 {
     width: calc(var(--spacing) * 10);
     height: calc(var(--spacing) * 10);
+  }
+  .size-12 {
+    width: calc(var(--spacing) * 12);
+    height: calc(var(--spacing) * 12);
   }
   .h-\(--header-height\) {
     height: var(--header-height);
@@ -763,6 +781,9 @@
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
+  }
+  .h-\[20px\] {
+    height: 20px;
   }
   .h-\[calc\(100vh-var\(--header-height\)\)\] {
     height: calc(100vh - var(--header-height));
@@ -790,6 +811,9 @@
   }
   .w-\[60\%\] {
     width: 60%;
+  }
+  .w-\[100px\] {
+    width: 100px;
   }
   .w-\[200px\] {
     width: 200px;
@@ -836,11 +860,20 @@
   .flex-1 {
     flex: 1;
   }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .shrink-0 {
     flex-shrink: 0;
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -851,6 +884,9 @@
   .animate-spin {
     animation: var(--animate-spin);
   }
+  .resize {
+    resize: both;
+  }
   .scroll-m-20 {
     scroll-margin: calc(var(--spacing) * 20);
   }
@@ -859,6 +895,9 @@
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .grid-rows-\[auto_auto\] {
     grid-template-rows: auto auto;
@@ -974,9 +1013,17 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
   .border-r {
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
+  }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
   }
   .border-dashed {
     --tw-border-style: dashed;
@@ -1070,6 +1117,9 @@
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
+  }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
   }
@@ -1093,6 +1143,9 @@
   }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
+  }
+  .pt-1 {
+    padding-top: calc(var(--spacing) * 1);
   }
   .pt-1\.5 {
     padding-top: calc(var(--spacing) * 1.5);
@@ -1178,14 +1231,23 @@
   .text-balance {
     text-wrap: balance;
   }
+  .text-wrap {
+    text-wrap: wrap;
+  }
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+  .text-blue-500 {
+    color: var(--color-blue-500);
   }
   .text-card-foreground {
     color: var(--card-foreground);
   }
   .text-foreground {
     color: var(--foreground);
+  }
+  .text-green-500 {
+    color: var(--color-green-500);
   }
   .text-muted-foreground {
     color: var(--muted-foreground);
@@ -1196,6 +1258,9 @@
   .text-primary-foreground {
     color: var(--primary-foreground);
   }
+  .text-red-500 {
+    color: var(--color-red-500);
+  }
   .text-secondary-foreground {
     color: var(--secondary-foreground);
   }
@@ -1204,6 +1269,9 @@
   }
   .capitalize {
     text-transform: capitalize;
+  }
+  .underline {
+    text-decoration-line: underline;
   }
   .underline-offset-4 {
     text-underline-offset: 4px;
@@ -1619,6 +1687,11 @@
   .lg\:gap-y-6 {
     @media (width >= 64rem) {
       row-gap: calc(var(--spacing) * 6);
+    }
+  }
+  .lg\:px-8 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 8);
     }
   }
   .lg\:py-20 {

@@ -1,6 +1,6 @@
 ---
 title: Kbd
-description: Displays keyboard input or shortcuts.
+description: Used to display textual user input from keyboard.
 component: true
 ---
 
@@ -9,7 +9,7 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add kbd
 ```
 
 ## Usage
@@ -18,23 +18,42 @@ No easy installation yet
 use ui::Kbd;
 
 rsx! {
-    Kbd { "⌘" }
-    Kbd { "K" }
+    Kbd { "B" }
 }
 ```
 
 ## Examples
 
-### Keyboard Shortcut
+### Default
+
+<ComponentPreview name="kbd-demo"/>
+
+### Group
+
+Group multiple keyboard keys together:
 
 ```rust
-use ui::Kbd;
+use ui::{Kbd, KbdGroup};
 
 rsx! {
-    div { class: "flex items-center gap-1",
-        Kbd { "⌘" }
-        Kbd { "Shift" }
-        Kbd { "P" }
+    KbdGroup {
+        Kbd { "Ctrl + B" }
+        Kbd { "Ctrl + K" }
+    }
+}
+```
+
+### With Button
+
+Embed keyboard indicators within button components:
+
+```rust
+use ui::{Button, ButtonVariant, ButtonSize, Kbd};
+
+rsx! {
+    Button { variant: ButtonVariant::Outline, size: ButtonSize::Sm,
+        "Accept "
+        Kbd { "⏎" }
     }
 }
 ```

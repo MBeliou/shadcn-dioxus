@@ -9,7 +9,7 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add avatar
 ```
 
 ## Usage
@@ -19,13 +19,25 @@ use ui::{Avatar, AvatarImage, AvatarFallback};
 
 rsx! {
     Avatar {
-        AvatarImage { src: "https://github.com/shadcn.png", alt: "User" }
+        AvatarImage { src: "https://github.com/shadcn.png", alt: "@shadcn" }
         AvatarFallback { "CN" }
     }
 }
 ```
 
+## Structure
+
+The Avatar component is a compound component with the following parts:
+
+- `Avatar` - The main container with loading state management
+- `AvatarImage` - Displays the avatar image
+- `AvatarFallback` - Renders initials or placeholder when image fails to load
+
 ## Examples
+
+### Default
+
+<ComponentPreview name="avatar-demo"/>
 
 ### Fallback
 

@@ -15,7 +15,7 @@ pub fn Layout() -> Element {
         div { class: "flex flex-1 w-screen",
             Sidebar { active_slug }
             div { class: "flex-1",
-                div { class: "mx-auto flex w-full max-w-2xl py-8 px-4", Outlet::<Route> {} }
+                div { class: "w-full max-w-2xl mx-auto py-8 px-6 lg:px-8", Outlet::<Route> {} }
             }
         }
     }

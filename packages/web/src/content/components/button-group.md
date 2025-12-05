@@ -1,6 +1,6 @@
 ---
-title: ButtonGroup
-description: Groups multiple buttons together.
+title: Button Group
+description: A container that groups related buttons together with consistent styling.
 component: true
 ---
 
@@ -9,27 +9,61 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add button-group
 ```
 
 ## Usage
 
 ```rust
-use ui::{ButtonGroup, Button, ButtonVariant};
+use ui::{ButtonGroup, Button};
 
 rsx! {
-    ButtonGroup::Root {
-        Button { variant: ButtonVariant::Outline, "Left" }
-        Button { variant: ButtonVariant::Outline, "Center" }
-        Button { variant: ButtonVariant::Outline, "Right" }
+    ButtonGroup {
+        Button { "Button 1" }
+        Button { "Button 2" }
     }
 }
 ```
 
-## Structure
+## Examples
 
-The ButtonGroup component is a compound component with the following parts:
+### Default
 
-- `ButtonGroup::Root` - The container
-- `ButtonGroup::Text` - Text element within the group
-- `ButtonGroup::Separator` - Separator between buttons
+<ComponentPreview name="button-group-demo"/>
+
+### Vertical
+
+Groups buttons in a column layout:
+
+```rust
+use ui::{ButtonGroup, ButtonGroupOrientation, Button, ButtonVariant};
+
+rsx! {
+    ButtonGroup { orientation: ButtonGroupOrientation::Vertical,
+        Button { variant: ButtonVariant::Outline, "Top" }
+        Button { variant: ButtonVariant::Outline, "Middle" }
+        Button { variant: ButtonVariant::Outline, "Bottom" }
+    }
+}
+```
+
+### With Separator
+
+Use `ButtonGroupSeparator` to visually divide buttons within a group:
+
+```rust
+use ui::{ButtonGroup, ButtonGroupSeparator, Button, ButtonVariant};
+
+rsx! {
+    ButtonGroup {
+        Button { variant: ButtonVariant::Outline, "Action" }
+        ButtonGroupSeparator {}
+        Button { variant: ButtonVariant::Outline, "▼" }
+    }
+}
+```
+
+## Accessibility
+
+- Component includes `role="group"` attribute
+- Use `aria-label` for proper labeling

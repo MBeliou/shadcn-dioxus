@@ -9,20 +9,36 @@ component: true
 ## Installation
 
 ```bash
-No easy installation yet
+npx shadcn-dioxus add badge
 ```
 
 ## Usage
 
 ```rust
+use ui::{Badge, BadgeVariant};
+
+rsx! {
+    Badge { variant: BadgeVariant::Outline, "Badge" }
+}
+```
+
+## Link
+
+You can use the `href` prop to render the badge as an `<a>` element.
+
+```rust
 use ui::Badge;
 
 rsx! {
-    Badge { "Badge" }
+    Badge { href: "/dashboard", "Badge" }
 }
 ```
 
 ## Examples
+
+### Default
+
+<ComponentPreview name="badge-demo"/>
 
 ### Secondary
 
