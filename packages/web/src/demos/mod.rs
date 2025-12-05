@@ -6,8 +6,12 @@ pub fn get_demo(name: &str) -> Option<Element> {
         // Button demos
         "button-demo" => Some(rsx! { Button { "Button" } }),
         "button-primary" => Some(rsx! { Button { variant: ButtonVariant::Default, "Primary" } }),
-        "button-secondary" => Some(rsx! { Button { variant: ButtonVariant::Secondary, "Secondary" } }),
-        "button-destructive" => Some(rsx! { Button { variant: ButtonVariant::Destructive, "Destructive" } }),
+        "button-secondary" => {
+            Some(rsx! { Button { variant: ButtonVariant::Secondary, "Secondary" } })
+        }
+        "button-destructive" => {
+            Some(rsx! { Button { variant: ButtonVariant::Destructive, "Destructive" } })
+        }
         "button-outline" => Some(rsx! { Button { variant: ButtonVariant::Outline, "Outline" } }),
         "button-ghost" => Some(rsx! { Button { variant: ButtonVariant::Ghost, "Ghost" } }),
         "button-link" => Some(rsx! { Button { variant: ButtonVariant::Link, "Link" } }),
@@ -15,7 +19,9 @@ pub fn get_demo(name: &str) -> Option<Element> {
         // Badge demos
         "badge-demo" => Some(rsx! { Badge { "Badge" } }),
         "badge-secondary" => Some(rsx! { Badge { variant: BadgeVariant::Secondary, "Secondary" } }),
-        "badge-destructive" => Some(rsx! { Badge { variant: BadgeVariant::Destructive, "Destructive" } }),
+        "badge-destructive" => {
+            Some(rsx! { Badge { variant: BadgeVariant::Destructive, "Destructive" } })
+        }
         "badge-outline" => Some(rsx! { Badge { variant: BadgeVariant::Outline, "Outline" } }),
 
         // Card demos
@@ -100,6 +106,29 @@ pub fn get_demo(name: &str) -> Option<Element> {
             div { class: "flex items-center gap-1",
                 Kbd { "⌘" }
                 Kbd { "K" }
+            }
+        }),
+        "kbd-group" => Some(rsx! {
+            p {
+                class: "text-muted-foreground text-sm",
+            "Use",
+            KbdGroup {
+                Kbd { "Ctrl + B" }
+                Kbd { "Ctrl + K" }
+            }
+            "to open the command palette"
+            }
+        }),
+        "kbd-button" => Some(rsx! {
+            div { class: "flex items-center gap-2",
+                Button { variant: ButtonVariant::Outline, size: ButtonSize::Sm, class: "gap-2",
+                    "Accept"
+                    Kbd { "⏎" }
+                }
+                Button { variant: ButtonVariant::Outline, size: ButtonSize::Sm, class: "gap-2",
+                    "Cancel"
+                    Kbd { "Esc" }
+                }
             }
         }),
 

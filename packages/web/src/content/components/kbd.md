@@ -30,30 +30,12 @@ rsx! {
 
 ### Group
 
-Group multiple keyboard keys together:
+Use the `KbdGroup` component to group keyboard keys together.
 
-```rust
-use ui::{Kbd, KbdGroup};
+<ComponentPreview name="kbd-group"/>
 
-rsx! {
-    KbdGroup {
-        Kbd { "Ctrl + B" }
-        Kbd { "Ctrl + K" }
-    }
-}
-```
+### Button
 
-### With Button
+Use the `Kbd` component inside a `Button` component to display a keyboard key inside a button.
 
-Embed keyboard indicators within button components:
-
-```rust
-use ui::{Button, ButtonVariant, ButtonSize, Kbd};
-
-rsx! {
-    Button { variant: ButtonVariant::Outline, size: ButtonSize::Sm,
-        "Accept "
-        Kbd { "⏎" }
-    }
-}
-```
+<ComponentPreview name="kbd-button"/>
