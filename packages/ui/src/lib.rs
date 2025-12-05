@@ -32,3 +32,6 @@ pub use kbd::*;
 
 pub mod checkbox;
 pub use checkbox::*;
+
+pub mod textarea;
+pub use textarea::*;
