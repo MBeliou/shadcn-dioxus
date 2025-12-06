@@ -699,6 +699,12 @@
   .mb-8 {
     margin-bottom: calc(var(--spacing) * 8);
   }
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
   .line-clamp-2 {
     overflow: hidden;
     display: -webkit-box;
@@ -794,6 +800,9 @@
   }
   .h-px {
     height: 1px;
+  }
+  .min-h-4 {
+    min-height: calc(var(--spacing) * 4);
   }
   .min-h-16 {
     min-height: calc(var(--spacing) * 16);
@@ -891,6 +900,9 @@
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .grid-cols-\[0_1fr\] {
+    grid-template-columns: 0 1fr;
+  }
   .grid-rows-\[auto_auto\] {
     grid-template-rows: auto auto;
   }
@@ -917,6 +929,9 @@
   }
   .justify-start {
     justify-content: flex-start;
+  }
+  .justify-items-start {
+    justify-items: start;
   }
   .gap-1 {
     gap: calc(var(--spacing) * 1);
@@ -973,6 +988,9 @@
       margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
     }
+  }
+  .gap-y-0\.5 {
+    row-gap: calc(var(--spacing) * 0.5);
   }
   .self-start {
     align-self: flex-start;
@@ -1229,6 +1247,9 @@
   }
   .text-current {
     color: currentcolor;
+  }
+  .text-destructive {
+    color: var(--destructive);
   }
   .text-foreground {
     color: var(--foreground);
@@ -1511,6 +1532,16 @@
       gap: calc(var(--spacing) * 2);
     }
   }
+  .has-\[\>svg\]\:grid-cols-\[calc\(var\(--spacing\)\*4\)_1fr\] {
+    &:has(>svg) {
+      grid-template-columns: calc(var(--spacing) * 4) 1fr;
+    }
+  }
+  .has-\[\>svg\]\:gap-x-3 {
+    &:has(>svg) {
+      column-gap: calc(var(--spacing) * 3);
+    }
+  }
   .has-\[\>svg\]\:px-2\.5 {
     &:has(>svg) {
       padding-inline: calc(var(--spacing) * 2.5);
@@ -1572,6 +1603,16 @@
   .data-\[orientation\=vertical\]\:w-px {
     &[data-orientation="vertical"] {
       width: 1px;
+    }
+  }
+  .\*\:data-\[slot\=alert-description\]\:text-destructive\/90 {
+    :is(& > *) {
+      &[data-slot="alert-description"] {
+        color: var(--destructive);
+        @supports (color: color-mix(in lab, red, red)) {
+          color: color-mix(in oklab, var(--destructive) 90%, transparent);
+        }
+      }
     }
   }
   .\*\*\:data-\[slot\=button\]\:shadow-none {
@@ -1889,6 +1930,12 @@
       object-fit: cover;
     }
   }
+  .\[\&_p\]\:leading-relaxed {
+    & p {
+      --tw-leading: var(--leading-relaxed);
+      line-height: var(--leading-relaxed);
+    }
+  }
   .\[\&_svg\]\:pointer-events-none {
     & svg {
       pointer-events: none;
@@ -2057,6 +2104,23 @@
     &>svg {
       width: calc(var(--spacing) * 3);
       height: calc(var(--spacing) * 3);
+    }
+  }
+  .\[\&\>svg\]\:size-4 {
+    &>svg {
+      width: calc(var(--spacing) * 4);
+      height: calc(var(--spacing) * 4);
+    }
+  }
+  .\[\&\>svg\]\:translate-y-0\.5 {
+    &>svg {
+      --tw-translate-y: calc(var(--spacing) * 0.5);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .\[\&\>svg\]\:text-current {
+    &>svg {
+      color: currentcolor;
     }
   }
   .\[a\&\]\:hover\:bg-accent {
