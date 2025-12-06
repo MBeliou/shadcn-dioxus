@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="card-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add card
-```
-
 ## Usage
 
 ```rust

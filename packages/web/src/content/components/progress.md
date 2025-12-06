@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="progress-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add progress
-```
-
 ## Usage
 
 ```rust

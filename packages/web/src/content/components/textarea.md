@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="textarea-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add textarea
-```
-
 ## Usage
 
 ```rust

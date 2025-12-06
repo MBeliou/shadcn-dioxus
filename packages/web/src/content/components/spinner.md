@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="spinner-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add spinner
-```
-
 ## Usage
 
 ```rust

@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="label-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add label
-```
-
 ## Usage
 
 ```rust

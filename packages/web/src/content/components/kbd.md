@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="kbd-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add kbd
-```
-
 ## Usage
 
 ```rust

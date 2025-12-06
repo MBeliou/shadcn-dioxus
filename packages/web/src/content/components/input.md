@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="input-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add input
-```
-
 ## Usage
 
 ```rust

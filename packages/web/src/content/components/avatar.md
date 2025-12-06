@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="avatar-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add avatar
-```
-
 ## Usage
 
 ```rust

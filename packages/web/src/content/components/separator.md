@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="separator-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add separator
-```
-
 ## Usage
 
 ```rust

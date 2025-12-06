@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="skeleton-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add skeleton
-```
-
 ## Usage
 
 ```rust

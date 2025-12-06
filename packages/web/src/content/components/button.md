@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="button-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add button
-```
-
 ## Usage
 
 ```rust

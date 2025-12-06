@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="button-group-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add button-group
-```
-
 ## Usage
 
 ```rust

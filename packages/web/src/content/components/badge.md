@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="badge-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add badge
-```
-
 ## Usage
 
 ```rust

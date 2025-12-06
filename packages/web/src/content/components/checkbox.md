@@ -6,12 +6,6 @@ component: true
 
 <ComponentPreview name="checkbox-demo"/>
 
-## Installation
-
-```bash
-npx shadcn-dioxus add checkbox
-```
-
 ## Usage
 
 ```rust
