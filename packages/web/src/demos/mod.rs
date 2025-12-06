@@ -392,6 +392,33 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "switch-demo" => {
+            Some(
+                rsx! {
+                    Switch {}
+                },
+            )
+        }
+        "switch-disabled" => {
+            Some(
+                rsx! {
+                    div { class: "flex items-center space-x-2",
+                        Switch { id: "disabled", disabled: true }
+                        Label { "for": "disabled", "Airplane Mode" }
+                    }
+                },
+            )
+        }
+        "switch-with-label" => {
+            Some(
+                rsx! {
+                    div { class: "flex items-center space-x-2",
+                        Switch { id: "airplane-mode" }
+                        Label { "for": "airplane-mode", "Airplane Mode" }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }
