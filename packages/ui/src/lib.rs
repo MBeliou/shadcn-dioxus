@@ -37,3 +37,6 @@ pub mod textarea;
 pub use textarea::*;
 pub mod alert;
 pub use alert::*;
+
+pub mod switch;
+pub use switch::*;
