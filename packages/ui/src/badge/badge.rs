@@ -1,5 +1,5 @@
-use dioxus::prelude::*;
 use crate::cn;
+use dioxus::prelude::*;
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum BadgeVariant {
     #[default]
@@ -8,6 +8,7 @@ pub enum BadgeVariant {
     Destructive,
     Outline,
 }
+
 impl BadgeVariant {
     pub fn class(&self) -> &'static str {
         match self {

@@ -35,3 +35,5 @@ pub use checkbox::*;
 
 pub mod textarea;
 pub use textarea::*;
+pub mod alert;
+pub use alert::*;
