@@ -15,7 +15,7 @@ pub struct FieldSeparatorProps {
 
 #[component]
 pub fn FieldSeparator(props: FieldSeparatorProps) -> Element {
-    let has_content = props.children.is_some();
+    let has_content = props.children.is_ok();
 
     rsx! {
         div {
