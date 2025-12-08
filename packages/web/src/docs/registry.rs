@@ -19,6 +19,7 @@ pub fn get_component_doc(name: &str) -> Option<&'static str> {
         "switch" => Some(include_str!("../content/components/switch.md")),
         "field" => Some(include_str!("../content/components/field.md")),
         "toggle" => Some(include_str!("../content/components/toggle.md")),
+        "aspect-ratio" => Some(include_str!("../content/components/aspect-ratio.md")),
         "alert" => None,
         _ => None,
     }

@@ -882,6 +882,9 @@
   .w-\[350px\] {
     width: 350px;
   }
+  .w-\[450px\] {
+    width: 450px;
+  }
   .w-fit {
     width: fit-content;
   }
@@ -1189,6 +1192,9 @@
   }
   .bg-transparent {
     background-color: transparent;
+  }
+  .object-cover {
+    object-fit: cover;
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);

@@ -6,6 +6,10 @@ pub struct ComponentMeta {
 /// All available components. Components that do not exist are handled as well with a dedicated 404 page
 const COMPONENTS: &[ComponentMeta] = &[
     ComponentMeta {
+        slug: "aspect-ratio",
+        title: "Aspect Ratio",
+    },
+    ComponentMeta {
         slug: "avatar",
         title: "Avatar",
     },
