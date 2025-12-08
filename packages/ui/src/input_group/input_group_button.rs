@@ -1,4 +1,4 @@
-use crate::{cn, ButtonVariant};
+use crate::{Button, ButtonVariant};
 use dioxus::prelude::*;
 
 #[derive(Clone, Copy, PartialEq, Default)]
@@ -19,21 +19,6 @@ impl InputGroupButtonSize {
             Self::IconSm => "size-8 p-0 has-[>svg]:p-0",
         }
     }
-
-    pub fn as_str(&self) -> &'static str {
-        match self {
-            Self::Xs => "xs",
-            Self::Sm => "sm",
-            Self::IconXs => "icon-xs",
-            Self::IconSm => "icon-sm",
-        }
-    }
-}
-
-const BASE_CLASSES: &str = "flex items-center gap-2 text-sm shadow-none";
-
-pub fn input_group_button_variants(size: InputGroupButtonSize) -> String {
-    format!("{} {}", BASE_CLASSES, size.class())
 }
 
 #[derive(Props, Clone, PartialEq)]
@@ -51,23 +36,18 @@ pub struct InputGroupButtonProps {
     pub disabled: bool,
 
     pub children: Element,
-
-    #[props(extends = GlobalAttributes)]
-    pub attributes: Vec<Attribute>,
 }
 
 #[component]
 pub fn InputGroupButton(props: InputGroupButtonProps) -> Element {
-    let size_classes = input_group_button_variants(props.size);
-    let variant_classes = props.variant.class();
+    let size_class = props.size.class();
+    let class = format!("shadow-none {} {}", size_class, props.class);
 
     rsx! {
-        button {
-            r#type: "button",
-            "data-size": props.size.as_str(),
+        Button {
+            variant: props.variant,
             disabled: props.disabled,
-            class: cn(&format!("{} {}", size_classes, variant_classes), &props.class),
-            ..props.attributes,
+            class: class,
             {props.children}
         }
     }

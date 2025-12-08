@@ -74,6 +74,7 @@ pub struct InputProps {
     pub oncopy: Option<EventHandler<ClipboardEvent>>,
     pub oncut: Option<EventHandler<ClipboardEvent>>,
     pub onpaste: Option<EventHandler<ClipboardEvent>>,
+    pub onmounted: Option<EventHandler<MountedEvent>>,
     #[props(extends = GlobalAttributes)]
     #[props(extends = input)]
     pub attributes: Vec<Attribute>,
@@ -104,6 +105,7 @@ pub fn Input(props: InputProps) -> Element {
             oncopy: move |e| _ = props.oncopy.map(|cb| cb(e)),
             oncut: move |e| _ = props.oncut.map(|cb| cb(e)),
             onpaste: move |e| _ = props.onpaste.map(|cb| cb(e)),
+            onmounted: move |e| _ = props.onmounted.map(|cb| cb(e)),
             ..props.attributes,
         }
     }
