@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 
 
 #[derive(Props, Clone, PartialEq)]
-pub struct NativeSelectOptionProps {
+pub struct NativeSelectOptGroupProps {
     pub children: Element,
 
     #[props(extends = GlobalAttributes)]
@@ -10,7 +10,7 @@ pub struct NativeSelectOptionProps {
     pub attributes: Vec<Attribute>,
 }
 
-
+#[component]
 pub fn NativeSelectOptGroup(props: NativeSelectOptGroupProps) -> Element {
     rsx! {
         optgroup{
