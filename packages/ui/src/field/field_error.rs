@@ -35,7 +35,7 @@ pub fn FieldError(props: FieldErrorProps) -> Element {
         || (errors_with_messages.len() == 1 && !errors_with_messages[0].is_empty());
 
     if !has_content {
-        return None;
+        return rsx! {};
     }
 
     let is_multiple = errors_with_messages.len() > 1;
