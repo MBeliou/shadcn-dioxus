@@ -251,6 +251,12 @@
   .z-50 {
     z-index: 50;
   }
+  .order-first {
+    order: -9999;
+  }
+  .order-last {
+    order: 9999;
+  }
   .col-start-2 {
     grid-column-start: 2;
   }
@@ -846,6 +852,9 @@
   .h-\[calc\(100vh-var\(--header-height\)\)\] {
     height: calc(100vh - var(--header-height));
   }
+  .h-auto {
+    height: auto;
+  }
   .h-full {
     height: 100%;
   }
@@ -966,6 +975,9 @@
   }
   .animate-spin {
     animation: var(--animate-spin);
+  }
+  .cursor-text {
+    cursor: text;
   }
   .resize {
     resize: both;
@@ -1285,6 +1297,12 @@
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
+  .ps-3 {
+    padding-inline-start: calc(var(--spacing) * 3);
+  }
+  .pe-3 {
+    padding-inline-end: calc(var(--spacing) * 3);
+  }
   .pe-9 {
     padding-inline-end: calc(var(--spacing) * 9);
   }
@@ -1296,6 +1314,12 @@
   }
   .pt-2 {
     padding-top: calc(var(--spacing) * 2);
+  }
+  .pt-3 {
+    padding-top: calc(var(--spacing) * 3);
+  }
+  .pb-3 {
+    padding-bottom: calc(var(--spacing) * 3);
   }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
@@ -1540,6 +1564,16 @@
       align-self: flex-start;
     }
   }
+  .group-has-\[\>input\]\/input-group\:pt-2\.5 {
+    &:is(:where(.group\/input-group):has(>input) *) {
+      padding-top: calc(var(--spacing) * 2.5);
+    }
+  }
+  .group-has-\[\>input\]\/input-group\:pb-2\.5 {
+    &:is(:where(.group\/input-group):has(>input) *) {
+      padding-bottom: calc(var(--spacing) * 2.5);
+    }
+  }
   .group-data-\[disabled\=true\]\:pointer-events-none {
     &:is(:where(.group)[data-disabled="true"] *) {
       pointer-events: none;
@@ -1552,6 +1586,11 @@
   }
   .group-data-\[disabled\=true\]\/field\:opacity-50 {
     &:is(:where(.group\/field)[data-disabled="true"] *) {
+      opacity: 50%;
+    }
+  }
+  .group-data-\[disabled\=true\]\/input-group\:opacity-50 {
+    &:is(:where(.group\/input-group)[data-disabled="true"] *) {
       opacity: 50%;
     }
   }
@@ -1843,6 +1882,26 @@
   .has-\[\>\[data-slot\=radio-group\]\]\:gap-3 {
     &:has(>[data-slot=radio-group]) {
       gap: calc(var(--spacing) * 3);
+    }
+  }
+  .has-\[\>button\]\:ms-\[-0\.45rem\] {
+    &:has(>button) {
+      margin-inline-start: -0.45rem;
+    }
+  }
+  .has-\[\>button\]\:me-\[-0\.45rem\] {
+    &:has(>button) {
+      margin-inline-end: -0.45rem;
+    }
+  }
+  .has-\[\>kbd\]\:ms-\[-0\.35rem\] {
+    &:has(>kbd) {
+      margin-inline-start: -0.35rem;
+    }
+  }
+  .has-\[\>kbd\]\:me-\[-0\.35rem\] {
+    &:has(>kbd) {
+      margin-inline-end: -0.35rem;
     }
   }
   .has-\[\>svg\]\:grid-cols-\[calc\(var\(--spacing\)\*4\)_1fr\] {
@@ -2405,9 +2464,19 @@
       flex: none;
     }
   }
+  .\[\.border-b\]\:pb-3 {
+    &:is(.border-b) {
+      padding-bottom: calc(var(--spacing) * 3);
+    }
+  }
   .\[\.border-b\]\:pb-6 {
     &:is(.border-b) {
       padding-bottom: calc(var(--spacing) * 6);
+    }
+  }
+  .\[\.border-t\]\:pt-3 {
+    &:is(.border-t) {
+      padding-top: calc(var(--spacing) * 3);
     }
   }
   .\[\.border-t\]\:pt-6 {
@@ -2616,6 +2685,11 @@
       }
     }
   }
+  .\[\&\>kbd\]\:rounded-\[calc\(var\(--radius\)-5px\)\] {
+    &>kbd {
+      border-radius: calc(var(--radius) - 5px);
+    }
+  }
   .\[\&\>svg\]\:pointer-events-none {
     &>svg {
       pointer-events: none;
@@ -2648,6 +2722,12 @@
     &>svg:not([class*='size-']) {
       width: calc(var(--spacing) * 3.5);
       height: calc(var(--spacing) * 3.5);
+    }
+  }
+  .\[\&\>svg\:not\(\[class\*\=\'size-\'\]\)\]\:size-4 {
+    &>svg:not([class*='size-']) {
+      width: calc(var(--spacing) * 4);
+      height: calc(var(--spacing) * 4);
     }
   }
   .\[\[data-variant\=legend\]\+\&\]\:-mt-1\.5 {
