@@ -1,4 +1,5 @@
 mod field;
+mod field_error;
 mod field_group;
 mod field_label;
 mod field_legend;
@@ -6,6 +7,7 @@ mod field_separator;
 mod field_set;
 mod field_title;
 pub use field::*;
+pub use field_error::*;
 pub use field_group::*;
 pub use field_label::*;
 pub use field_legend::*;
