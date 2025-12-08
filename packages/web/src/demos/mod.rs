@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 use lucide_dioxus::{
-    ArrowUp, Bold, Check, Copy, CornerDownLeft, CreditCard, FileCode, Info, Italic, Link2, Loader,
-    Mail, Plus, RefreshCw, Search, Star, Underline,
+    ArrowUp, Bold, Check, Copy, CornerDownLeft, CreditCard, FileCode, Info, Italic,
+    Link2, Loader, Mail, Plus, RefreshCw, Search, Star, Underline,
 };
 use ui::*;
 pub fn get_demo(name: &str) -> Option<Element> {
@@ -355,7 +355,11 @@ pub fn get_demo(name: &str) -> Option<Element> {
             Some(
                 rsx! {
                     div { class: "flex items-center space-x-2",
-                        Checkbox { id: "disabled", disabled: true, default_checked: CheckboxState::Checked }
+                        Checkbox {
+                            id: "disabled",
+                            disabled: true,
+                            default_checked: CheckboxState::Checked,
+                        }
                         Label { "for": "disabled", "Disabled" }
                     }
                 },
@@ -371,7 +375,10 @@ pub fn get_demo(name: &str) -> Option<Element> {
         "textarea-disabled" => {
             Some(
                 rsx! {
-                    Textarea { placeholder: "Type your message here.", disabled: true }
+                    Textarea {
+                        placeholder: "Type your message here.",
+                        disabled: true,
+                    }
                 },
             )
         }
@@ -380,7 +387,10 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 rsx! {
                     div { class: "grid w-full gap-1.5",
                         Label { "for": "message", "Your message" }
-                        Textarea { placeholder: "Type your message here.", id: "message" }
+                        Textarea {
+                            placeholder: "Type your message here.",
+                            id: "message",
+                        }
                     }
                 },
             )
@@ -477,7 +487,9 @@ pub fn get_demo(name: &str) -> Option<Element> {
         "field-switch" => {
             Some(
                 rsx! {
-                    Field { orientation: FieldOrientation::Horizontal, class: "max-w-sm",
+                    Field {
+                        orientation: FieldOrientation::Horizontal,
+                        class: "max-w-sm",
                         Switch { id: "mfa" }
                         FieldContent {
                             FieldLabel { "for": "mfa", "Multi-factor Authentication" }
@@ -490,16 +502,16 @@ pub fn get_demo(name: &str) -> Option<Element> {
         "toggle-demo" => {
             Some(
                 rsx! {
-                    Toggle { aria_label: "Toggle bold",
-                        Bold {}
-                    }
+                    Toggle { aria_label: "Toggle bold", Bold {} }
                 },
             )
         }
         "toggle-outline" => {
             Some(
                 rsx! {
-                    Toggle { variant: ToggleVariant::Outline, aria_label: "Toggle italic",
+                    Toggle {
+                        variant: ToggleVariant::Outline,
+                        aria_label: "Toggle italic",
                         Italic {}
                     }
                 },
@@ -518,27 +530,21 @@ pub fn get_demo(name: &str) -> Option<Element> {
         "toggle-sm" => {
             Some(
                 rsx! {
-                    Toggle { size: ToggleSize::Sm, aria_label: "Toggle bold",
-                        Bold {}
-                    }
+                    Toggle { size: ToggleSize::Sm, aria_label: "Toggle bold", Bold {} }
                 },
             )
         }
         "toggle-lg" => {
             Some(
                 rsx! {
-                    Toggle { size: ToggleSize::Lg, aria_label: "Toggle bold",
-                        Bold {}
-                    }
+                    Toggle { size: ToggleSize::Lg, aria_label: "Toggle bold", Bold {} }
                 },
             )
         }
         "toggle-disabled" => {
             Some(
                 rsx! {
-                    Toggle { disabled: true, aria_label: "Toggle underline",
-                        Underline {}
-                    }
+                    Toggle { disabled: true, aria_label: "Toggle underline", Underline {} }
                 },
             )
         }
@@ -550,7 +556,7 @@ pub fn get_demo(name: &str) -> Option<Element> {
                             img {
                                 src: "https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80",
                                 alt: "Photo by Drew Beamer",
-                                class: "h-full w-full rounded-md object-cover"
+                                class: "h-full w-full rounded-md object-cover",
                             }
                         }
                     }
@@ -618,12 +624,8 @@ pub fn get_demo(name: &str) -> Option<Element> {
                     div { class: "grid w-full max-w-sm gap-6",
                         InputGroup {
                             InputGroupInput { placeholder: "Search..." }
-                            InputGroupAddon {
-                                Search {}
-                            }
-                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                "12 results"
-                            }
+                            InputGroupAddon { Search {} }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd, "12 results" }
                         }
                         InputGroup {
                             InputGroupInput { placeholder: "example.com", class: "!ps-1" }
@@ -634,12 +636,22 @@ pub fn get_demo(name: &str) -> Option<Element> {
                         InputGroup {
                             InputGroupTextarea { placeholder: "Ask, Search or Chat..." }
                             InputGroupAddon { align: InputGroupAddonAlign::BlockEnd,
-                                InputGroupButton { variant: ButtonVariant::Outline, class: "rounded-full", size: InputGroupButtonSize::IconXs,
+                                InputGroupButton {
+                                    variant: ButtonVariant::Outline,
+                                    class: "rounded-full",
+                                    size: InputGroupButtonSize::IconXs,
                                     Plus {}
                                 }
                                 InputGroupText { class: "ms-auto", "52% used" }
-                                Separator { orientation: separator::SeparatorOrientation::Vertical, class: "!h-4" }
-                                InputGroupButton { variant: ButtonVariant::Default, class: "rounded-full", size: InputGroupButtonSize::IconXs, disabled: true,
+                                Separator {
+                                    orientation: separator::SeparatorOrientation::Vertical,
+                                    class: "!h-4",
+                                }
+                                InputGroupButton {
+                                    variant: ButtonVariant::Default,
+                                    class: "rounded-full",
+                                    size: InputGroupButtonSize::IconXs,
+                                    disabled: true,
                                     ArrowUp {}
                                 }
                             }
@@ -662,24 +674,19 @@ pub fn get_demo(name: &str) -> Option<Element> {
                     div { class: "grid w-full max-w-sm gap-6",
                         InputGroup {
                             InputGroupInput { placeholder: "Search..." }
-                            InputGroupAddon {
-                                Search {}
-                            }
+                            InputGroupAddon { Search {} }
                         }
                         InputGroup {
-                            InputGroupInput { r#type: "email", placeholder: "Enter your email" }
-                            InputGroupAddon {
-                                Mail {}
+                            InputGroupInput {
+                                r#type: "email",
+                                placeholder: "Enter your email",
                             }
+                            InputGroupAddon { Mail {} }
                         }
                         InputGroup {
                             InputGroupInput { placeholder: "Card number" }
-                            InputGroupAddon {
-                                CreditCard {}
-                            }
-                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                Check {}
-                            }
+                            InputGroupAddon { CreditCard {} }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd, Check {} }
                         }
                         InputGroup {
                             InputGroupInput { placeholder: "Card number" }
@@ -735,11 +742,12 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 rsx! {
                     div { class: "grid w-full max-w-sm gap-6",
                         InputGroup {
-                            InputGroupInput { readonly: true, placeholder: "https://x.com/shadcn" }
+                            InputGroupInput {
+                                readonly: true,
+                                placeholder: "https://x.com/shadcn",
+                            }
                             InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                InputGroupButton { size: InputGroupButtonSize::IconXs,
-                                    Copy {}
-                                }
+                                InputGroupButton { size: InputGroupButtonSize::IconXs, Copy {} }
                             }
                         }
                         InputGroup { class: "[--radius:9999px]",
@@ -748,17 +756,13 @@ pub fn get_demo(name: &str) -> Option<Element> {
                             }
                             InputGroupInput {}
                             InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                InputGroupButton { size: InputGroupButtonSize::IconXs,
-                                    Star {}
-                                }
+                                InputGroupButton { size: InputGroupButtonSize::IconXs, Star {} }
                             }
                         }
                         InputGroup {
                             InputGroupInput { placeholder: "Type to search..." }
                             InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                InputGroupButton { variant: ButtonVariant::Secondary,
-                                    "Search"
-                                }
+                                InputGroupButton { variant: ButtonVariant::Secondary, "Search" }
                             }
                         }
                     }
@@ -769,22 +773,36 @@ pub fn get_demo(name: &str) -> Option<Element> {
             Some(
                 rsx! {
                     InputGroup { class: "w-full max-w-md",
-                        InputGroupAddon { align: InputGroupAddonAlign::BlockStart, class: "border-b",
+                        InputGroupAddon {
+                            align: InputGroupAddonAlign::BlockStart,
+                            class: "border-b",
                             InputGroupText { class: "font-mono font-medium",
                                 FileCode { class: "size-4" }
                                 "script.js"
                             }
-                            InputGroupButton { class: "ms-auto", size: InputGroupButtonSize::IconXs,
+                            InputGroupButton {
+                                class: "ms-auto",
+                                size: InputGroupButtonSize::IconXs,
                                 RefreshCw {}
                             }
-                            InputGroupButton { variant: ButtonVariant::Ghost, size: InputGroupButtonSize::IconXs,
+                            InputGroupButton {
+                                variant: ButtonVariant::Ghost,
+                                size: InputGroupButtonSize::IconXs,
                                 Copy {}
                             }
                         }
-                        InputGroupTextarea { placeholder: "console.log('Hello, world!');", class: "min-h-[200px]" }
-                        InputGroupAddon { align: InputGroupAddonAlign::BlockEnd, class: "border-t",
+                        InputGroupTextarea {
+                            placeholder: "console.log('Hello, world!');",
+                            class: "min-h-[200px]",
+                        }
+                        InputGroupAddon {
+                            align: InputGroupAddonAlign::BlockEnd,
+                            class: "border-t",
                             InputGroupText { "Line 1, Column 1" }
-                            InputGroupButton { size: InputGroupButtonSize::Sm, class: "ms-auto", variant: ButtonVariant::Default,
+                            InputGroupButton {
+                                size: InputGroupButtonSize::Sm,
+                                class: "ms-auto",
+                                variant: ButtonVariant::Default,
                                 "Run"
                                 CornerDownLeft {}
                             }
@@ -799,25 +817,27 @@ pub fn get_demo(name: &str) -> Option<Element> {
                     div { class: "grid w-full max-w-sm gap-4",
                         InputGroup { "data-disabled": "true",
                             InputGroupInput { placeholder: "Searching...", disabled: true }
-                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                Spinner {}
-                            }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd, Spinner {} }
                         }
                         InputGroup { "data-disabled": "true",
                             InputGroupInput { placeholder: "Processing...", disabled: true }
-                            InputGroupAddon {
-                                Spinner {}
-                            }
+                            InputGroupAddon { Spinner {} }
                         }
                         InputGroup { "data-disabled": "true",
-                            InputGroupInput { placeholder: "Saving changes...", disabled: true }
+                            InputGroupInput {
+                                placeholder: "Saving changes...",
+                                disabled: true,
+                            }
                             InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
                                 InputGroupText { "Saving..." }
                                 Spinner {}
                             }
                         }
                         InputGroup { "data-disabled": "true",
-                            InputGroupInput { placeholder: "Refreshing data...", disabled: true }
+                            InputGroupInput {
+                                placeholder: "Refreshing data...",
+                                disabled: true,
+                            }
                             InputGroupAddon {
                                 Loader { class: "animate-spin" }
                             }
@@ -840,9 +860,16 @@ pub fn get_demo(name: &str) -> Option<Element> {
                             }
                         }
                         InputGroup {
-                            InputGroupInput { id: "email-2", placeholder: "shadcn@vercel.com" }
+                            InputGroupInput {
+                                id: "email-2",
+                                placeholder: "shadcn@vercel.com",
+                            }
                             InputGroupAddon { align: InputGroupAddonAlign::BlockStart,
-                                Label { "for": "email-2", class: "text-foreground", "Email" }
+                                Label {
+                                    "for": "email-2",
+                                    class: "text-foreground",
+                                    "Email"
+                                }
                             }
                         }
                     }
@@ -859,9 +886,7 @@ pub fn get_demo(name: &str) -> Option<Element> {
                             }
                             InputGroup {
                                 InputGroupInput { id: "url" }
-                                InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
-                                    Link2 {}
-                                }
+                                InputGroupAddon { align: InputGroupAddonAlign::InlineEnd, Link2 {} }
                             }
                             ButtonGroup::Text { ".com" }
                         }
@@ -880,7 +905,10 @@ pub fn get_demo(name: &str) -> Option<Element> {
                                 placeholder: "Autoresize textarea...",
                             }
                             InputGroupAddon { align: InputGroupAddonAlign::BlockEnd,
-                                InputGroupButton { class: "ms-auto", size: InputGroupButtonSize::Sm, variant: ButtonVariant::Default,
+                                InputGroupButton {
+                                    class: "ms-auto",
+                                    size: InputGroupButtonSize::Sm,
+                                    variant: ButtonVariant::Default,
                                     "Submit"
                                 }
                             }

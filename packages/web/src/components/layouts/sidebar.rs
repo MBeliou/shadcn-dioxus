@@ -1,8 +1,8 @@
-use super::Sidebar;
+use super::super::Sidebar;
 use crate::Route;
 use dioxus::prelude::*;
 #[component]
-pub fn Layout() -> Element {
+pub fn SidebarLayout() -> Element {
     let route = use_route::<Route>();
     let active_slug = match route {
         Route::ComponentDoc { name } => name,

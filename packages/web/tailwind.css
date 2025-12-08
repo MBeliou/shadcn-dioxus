@@ -8,6 +8,9 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --spacing: 0.25rem;
+}
+:root {
   --radius: 0.65rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -115,7 +118,6 @@
   --color-blue-primary: var(--blue-primary);
   --color-green-accent: var(--green-accent);
 }
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -125,22 +127,30 @@
   #main {
     @apply bg-background text-foreground scheme-only-dark;
   }
-
+  /*
   .container-wrapper {
     width: 100%;
     padding-inline: calc(var(--spacing) * 2);
     margin-inline: auto;
   }
-
+*/
   button:not([disabled]),
   [role="button"]:not([disabled]) {
     cursor: pointer;
   }
-
 }
 
 @layer utilities {
   * {
     --header-height: calc(var(--spacing) * 14);
+  }
+
+  @utility container-wrapper {
+    @apply 3xl:fixed:max-w-[calc(var(--breakpoint-2xl)+2rem)] mx-auto w-full px-2;
+  }
+
+  @utility container {
+    @apply 3xl:max-w-screen-2xl mx-auto max-w-[1400px] px-4 lg:px-8;
+    padding-inline: calc(var(--spacing) * 2);
   }
 }

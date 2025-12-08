@@ -2,11 +2,12 @@ use crate::docs::get_all_components;
 use crate::Route;
 use dioxus::prelude::*;
 use ui::{button_variants, cn, ButtonSize, ButtonVariant};
-
 #[component]
 pub fn SidebarNav(
-    #[props(into, default)] active_slug: String,
-    #[props(into, default)] class: String,
+    #[props(into, default)]
+    active_slug: String,
+    #[props(into, default)]
+    class: String,
     /// Whether to use large text (for mobile popover)
     #[props(default = false)]
     large_text: bool,
@@ -50,7 +51,7 @@ fn SidebarLink(
                 name: slug.to_string(),
             },
             class: cn(&button_variants(ButtonVariant::Ghost, ButtonSize::Sm), state_class),
-                "{title}"
+            "{title}"
         }
     }
 }

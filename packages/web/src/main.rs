@@ -1,6 +1,7 @@
 use dioxus::prelude::*;
 use ui::ButtonVariant;
-use views::{ComponentDoc, ComponentView, Home};
+use views::{ComponentDoc, ComponentView, Home, PlaygroundExample};
+use crate::components::{FullLayout, SidebarLayout};
 mod components;
 mod demos;
 mod docs;
@@ -9,9 +10,13 @@ mod views;
 #[rustfmt::skip]
 enum Route {
     #[layout(WebNavbar)]
+    #[layout(FullLayout)]
     #[route("/")]
     Home {},
-    #[layout(components::Layout)]
+    #[route("/examples/playground")]
+    PlaygroundExample {},
+    #[end_layout]
+    #[layout(SidebarLayout)]
     #[route("/docs/components")]
     ComponentView {},
     #[route("/docs/components/:name")]
@@ -46,19 +51,21 @@ fn App() -> Element {
 #[component]
 fn WebNavbar() -> Element {
     rsx! {
-        components::Navbar {
-            Link {
-                class: ui::button_variants(ButtonVariant::Ghost, ui::ButtonSize::Default),
-                to: Route::Home {},
-                "Home"
+        div { class: "min-h-svh flex flex-col",
+            components::Navbar {
+                Link {
+                    class: ui::button_variants(ButtonVariant::Ghost, ui::ButtonSize::Default),
+                    to: Route::Home {},
+                    "Home"
+                }
+                Link {
+                    class: ui::button_variants(ButtonVariant::Ghost, ui::ButtonSize::Default),
+                    to: Route::ComponentView {},
+                    "Components"
+                }
             }
-            Link {
-                class: ui::button_variants(ButtonVariant::Ghost, ui::ButtonSize::Default),
-                to: Route::ComponentView {},
-                "Components"
-            }
+            div { class: "grow", Outlet::<Route> {} }
         }
-        Outlet::<Route> {}
     }
 }
 #[component]

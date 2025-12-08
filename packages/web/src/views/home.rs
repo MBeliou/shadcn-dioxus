@@ -6,11 +6,9 @@ use ui::{
     EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle, Input, Item, ItemActions,
     ItemContent, ItemDescription, ItemMedia, ItemTitle, RenderFn, Separator, Spinner,
 };
-use crate::components::Hero;
 #[component]
 pub fn Home() -> Element {
     rsx! {
-        Hero {}
         div { class: "container mx-auto flex-1 pb-6",
             div { class: "container-wrapper overflow-hidden",
                 section { class: "theme-container",
