@@ -34,6 +34,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         title: "Empty",
     },
     ComponentMeta {
+        slug: "field",
+        title: "Field",
+    },
+    ComponentMeta {
         slug: "input",
         title: "Input",
     },

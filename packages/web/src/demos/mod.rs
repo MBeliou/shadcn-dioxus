@@ -419,6 +419,71 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "field-demo" => {
+            Some(
+                rsx! {
+                    Field { class: "max-w-sm",
+                        FieldLabel { "for": "email", "Email" }
+                        Input { id: "email", placeholder: "Enter your email" }
+                        FieldDescription { "We'll never share your email with anyone." }
+                    }
+                },
+            )
+        }
+        "field-textarea" => {
+            Some(
+                rsx! {
+                    Field { class: "max-w-sm",
+                        FieldLabel { "for": "bio", "Bio" }
+                        Textarea { id: "bio", placeholder: "Tell us about yourself" }
+                        FieldDescription { "You can use markdown for formatting." }
+                    }
+                },
+            )
+        }
+        "field-set-demo" => {
+            Some(
+                rsx! {
+                    FieldSet { class: "max-w-md",
+                        FieldLegend { "Address" }
+                        Field {
+                            FieldLabel { "for": "street", "Street" }
+                            Input { id: "street", placeholder: "123 Main St" }
+                        }
+                        Field {
+                            FieldLabel { "for": "city", "City" }
+                            Input { id: "city", placeholder: "New York" }
+                        }
+                    }
+                },
+            )
+        }
+        "field-checkbox" => {
+            Some(
+                rsx! {
+                    Field { orientation: FieldOrientation::Horizontal,
+                        Checkbox { id: "terms" }
+                        FieldContent {
+                            FieldLabel { "for": "terms", "Accept terms and conditions" }
+                            FieldDescription { "You agree to our Terms of Service and Privacy Policy." }
+                        }
+                    }
+                },
+            )
+        }
+        "field-switch" => {
+            Some(
+                rsx! {
+                    Field { orientation: FieldOrientation::Horizontal, class: "max-w-sm",
+                        Switch { id: "mfa" }
+                        FieldContent {
+                            FieldLabel { "for": "mfa", "Multi-factor Authentication" }
+                            FieldDescription { "Add an extra layer of security to your account." }
+                        }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }

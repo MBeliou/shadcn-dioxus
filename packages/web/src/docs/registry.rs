@@ -17,6 +17,7 @@ pub fn get_component_doc(name: &str) -> Option<&'static str> {
         "checkbox" => Some(include_str!("../content/components/checkbox.md")),
         "textarea" => Some(include_str!("../content/components/textarea.md")),
         "switch" => Some(include_str!("../content/components/switch.md")),
+        "field" => Some(include_str!("../content/components/field.md")),
         "alert" => None,
         _ => None,
     }
