@@ -8,7 +8,6 @@ pub enum BadgeVariant {
     Destructive,
     Outline,
 }
-
 impl BadgeVariant {
     pub fn class(&self) -> &'static str {
         match self {

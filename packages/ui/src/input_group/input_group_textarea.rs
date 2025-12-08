@@ -1,21 +1,17 @@
 use crate::input_group::InputGroupCtx;
 use crate::Textarea;
 use dioxus::prelude::*;
-
 #[derive(Props, Clone, PartialEq)]
 pub struct InputGroupTextareaProps {
     #[props(into, default)]
     pub class: String,
-
     #[props(extends = GlobalAttributes)]
     #[props(extends = textarea)]
     pub attributes: Vec<Attribute>,
 }
-
 #[component]
 pub fn InputGroupTextarea(props: InputGroupTextareaProps) -> Element {
     let mut ctx = use_context::<InputGroupCtx>();
-
     rsx! {
         Textarea {
             onmounted: move |event: Event<MountedData>| {

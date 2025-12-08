@@ -2,7 +2,6 @@ use crate::cn;
 use dioxus::prelude::*;
 use lucide_dioxus::{Check, Minus};
 use std::ops::Not;
-
 #[derive(Debug, Clone, Copy, PartialEq, Default)]
 pub enum CheckboxState {
     Checked,
@@ -10,7 +9,6 @@ pub enum CheckboxState {
     #[default]
     Unchecked,
 }
-
 impl CheckboxState {
     fn to_aria_checked(self) -> &'static str {
         match self {
@@ -19,7 +17,6 @@ impl CheckboxState {
             CheckboxState::Unchecked => "false",
         }
     }
-
     fn to_data_state(self) -> &'static str {
         match self {
             CheckboxState::Checked => "checked",
@@ -28,16 +25,13 @@ impl CheckboxState {
         }
     }
 }
-
 impl From<CheckboxState> for bool {
     fn from(value: CheckboxState) -> Self {
         !matches!(value, CheckboxState::Unchecked)
     }
 }
-
 impl Not for CheckboxState {
     type Output = Self;
-
     fn not(self) -> Self::Output {
         match self {
             Self::Unchecked => Self::Checked,
@@ -45,37 +39,28 @@ impl Not for CheckboxState {
         }
     }
 }
-
 #[derive(Props, Clone, PartialEq)]
 pub struct CheckboxProps {
     #[props(default)]
     pub checked: Option<Signal<CheckboxState>>,
-
     #[props(default)]
     pub default_checked: CheckboxState,
-
     #[props(default = false)]
     pub disabled: bool,
-
     #[props(into, default)]
     pub class: String,
-
     /// Callback when state changes.
     #[props(default)]
     pub on_checked_change: Option<Callback<CheckboxState>>,
-
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
 }
-
 #[component]
 pub fn Checkbox(props: CheckboxProps) -> Element {
     let mut internal_state = use_signal(|| props.default_checked);
-
     let get_checked = move || {
         props.checked.map(|s| s()).unwrap_or_else(|| internal_state())
     };
-
     let mut set_checked = move |new_state: CheckboxState| {
         if let Some(mut controlled) = props.checked {
             controlled.set(new_state);
@@ -86,9 +71,7 @@ pub fn Checkbox(props: CheckboxProps) -> Element {
             callback.call(new_state);
         }
     };
-
     let current_state = get_checked();
-
     rsx! {
         button {
             r#type: "button",
@@ -100,7 +83,7 @@ pub fn Checkbox(props: CheckboxProps) -> Element {
             disabled: props.disabled,
             class: cn(
                 "border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs peer flex size-4 shrink-0 items-center justify-center rounded-[4px] border outline-none transition-shadow focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
-                &props.class
+                &props.class,
             ),
             onclick: move |_| {
                 if !props.disabled {
@@ -117,8 +100,12 @@ pub fn Checkbox(props: CheckboxProps) -> Element {
                 "data-slot": "checkbox-indicator",
                 class: "text-current transition-none",
                 match current_state {
-                    CheckboxState::Checked => rsx! { Check { class: "size-3.5" } },
-                    CheckboxState::Indeterminate => rsx! { Minus { class: "size-3.5" } },
+                    CheckboxState::Checked => rsx! {
+                        Check { class: "size-3.5" }
+                    },
+                    CheckboxState::Indeterminate => rsx! {
+                        Minus { class: "size-3.5" }
+                    },
                     CheckboxState::Unchecked => rsx! {},
                 }
             }

@@ -1,7 +1,6 @@
 use crate::cn;
 use crate::input_group::InputGroupCtx;
 use dioxus::prelude::*;
-
 #[derive(Clone, Copy, PartialEq, Default)]
 pub enum InputGroupAddonAlign {
     #[default]
@@ -10,7 +9,6 @@ pub enum InputGroupAddonAlign {
     BlockStart,
     BlockEnd,
 }
-
 impl InputGroupAddonAlign {
     pub fn class(&self) -> &'static str {
         match self {
@@ -28,7 +26,6 @@ impl InputGroupAddonAlign {
             }
         }
     }
-
     pub fn as_str(&self) -> &'static str {
         match self {
             Self::InlineStart => "inline-start",
@@ -38,33 +35,24 @@ impl InputGroupAddonAlign {
         }
     }
 }
-
 const BASE_CLASSES: &str = "text-muted-foreground flex h-auto cursor-text select-none items-center justify-center gap-2 py-1.5 text-sm font-medium group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4";
-
 pub fn input_group_addon_variants(align: InputGroupAddonAlign) -> String {
     format!("{} {}", BASE_CLASSES, align.class())
 }
-
 #[derive(Props, Clone, PartialEq)]
 pub struct InputGroupAddonProps {
     #[props(default)]
     pub align: InputGroupAddonAlign,
-
     #[props(into, default)]
     pub class: String,
-
     pub children: Element,
-
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
 }
-
-
 /// Clicking the addon will focus the sibling input/textarea.
 #[component]
 pub fn InputGroupAddon(props: InputGroupAddonProps) -> Element {
     let ctx = use_context::<InputGroupCtx>();
-
     let handle_click = move |_: MouseEvent| {
         if let Some(control) = ctx.control.read().as_ref() {
             let control = control.clone();
@@ -73,7 +61,6 @@ pub fn InputGroupAddon(props: InputGroupAddonProps) -> Element {
             });
         }
     };
-
     rsx! {
         div {
             role: "group",

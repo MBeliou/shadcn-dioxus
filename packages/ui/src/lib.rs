@@ -29,54 +29,48 @@ pub mod progress;
 pub use progress::*;
 pub mod kbd;
 pub use kbd::*;
-
 pub mod checkbox;
 pub use checkbox::*;
-
 pub mod textarea;
 pub use textarea::*;
 pub mod alert;
 pub use alert::*;
-
 pub mod switch;
 pub use switch::*;
-
 pub mod field;
 pub use field::*;
-
 pub mod toggle;
 pub use toggle::*;
-
 pub mod aspect_ratio;
 pub use aspect_ratio::*;
-
 pub mod native_select;
 pub use native_select::*;
-
 pub mod input_group;
 pub use input_group::*;
-
 #[cfg(test)]
 mod tests {
     use tailwind_fuse::tw_merge;
-
     #[test]
     fn test_ring_arbitrary_value_merge() {
-        // Our specific issue: ring-[3px] should be overridden by ring-0
         let result = tw_merge!("ring-[3px]", "ring-0");
         assert_eq!(result, "ring-0", "Arbitrary ring value should be overridden");
     }
-
     #[test]
     fn test_ring_arbitrary_value_with_variant() {
         let result = tw_merge!("focus-visible:ring-[3px]", "focus-visible:ring-0");
-        assert_eq!(result, "focus-visible:ring-0", "Variant with arbitrary ring should be overridden");
+        assert_eq!(
+            result,
+            "focus-visible:ring-0",
+            "Variant with arbitrary ring should be overridden",
+        );
     }
-
     #[test]
     fn test_ring_width_and_inset_separate() {
-        // PR #29's original fix: ring-1 and ring-inset should both be kept
         let result = tw_merge!("ring-1", "ring-inset");
-        assert_eq!(result, "ring-1 ring-inset", "ring-width and ring-inset should not conflict");
+        assert_eq!(
+            result,
+            "ring-1 ring-inset",
+            "ring-width and ring-inset should not conflict",
+        );
     }
 }
