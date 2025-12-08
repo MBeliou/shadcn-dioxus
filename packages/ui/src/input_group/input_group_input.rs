@@ -1,5 +1,5 @@
-use crate::cn;
 use crate::input_group::InputGroupCtx;
+use crate::Input;
 use dioxus::prelude::*;
 
 #[derive(Props, Clone, PartialEq)]
@@ -17,16 +17,13 @@ pub fn InputGroupInput(props: InputGroupInputProps) -> Element {
     let mut ctx = use_context::<InputGroupCtx>();
 
     rsx! {
-        input {
-            onmounted: move |event| {
-                ctx.control.set(Some(event.data()));
+        Input {
+            onmounted: move |element : Event<MountedData>| {
+                ctx.control.set(Some(element.data()));
             },
-            "data-slot": "input-group-control",
-            class: cn(
-                "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent",
-                &props.class
-            ),
-            ..props.attributes,
+            data_slot: "input-group-control",
+            class: "flex-1 rounded-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent {props.class}",
+            attributes:props.attributes,
         }
     }
 }
