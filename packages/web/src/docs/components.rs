@@ -74,6 +74,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         title: "Textarea",
     },
     ComponentMeta {
+        slug: "toggle",
+        title: "Toggle",
+    },
+    ComponentMeta {
         slug: "alert",
         title: "Alert",
     },

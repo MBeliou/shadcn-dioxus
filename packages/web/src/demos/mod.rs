@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use lucide_dioxus::Plus;
+use lucide_dioxus::{Bold, Italic, Plus, Underline};
 use ui::*;
 pub fn get_demo(name: &str) -> Option<Element> {
     match name {
@@ -480,6 +480,61 @@ pub fn get_demo(name: &str) -> Option<Element> {
                             FieldLabel { "for": "mfa", "Multi-factor Authentication" }
                             FieldDescription { "Add an extra layer of security to your account." }
                         }
+                    }
+                },
+            )
+        }
+        "toggle-demo" => {
+            Some(
+                rsx! {
+                    Toggle { aria_label: "Toggle bold",
+                        Bold {}
+                    }
+                },
+            )
+        }
+        "toggle-outline" => {
+            Some(
+                rsx! {
+                    Toggle { variant: ToggleVariant::Outline, aria_label: "Toggle italic",
+                        Italic {}
+                    }
+                },
+            )
+        }
+        "toggle-with-text" => {
+            Some(
+                rsx! {
+                    Toggle { aria_label: "Toggle italic",
+                        Italic { class: "me-2" }
+                        "Italic"
+                    }
+                },
+            )
+        }
+        "toggle-sm" => {
+            Some(
+                rsx! {
+                    Toggle { size: ToggleSize::Sm, aria_label: "Toggle bold",
+                        Bold {}
+                    }
+                },
+            )
+        }
+        "toggle-lg" => {
+            Some(
+                rsx! {
+                    Toggle { size: ToggleSize::Lg, aria_label: "Toggle bold",
+                        Bold {}
+                    }
+                },
+            )
+        }
+        "toggle-disabled" => {
+            Some(
+                rsx! {
+                    Toggle { disabled: true, aria_label: "Toggle underline",
+                        Underline {}
                     }
                 },
             )
