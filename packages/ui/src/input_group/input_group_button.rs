@@ -48,7 +48,7 @@ pub fn InputGroupButton(props: InputGroupButtonProps) -> Element {
             variant: props.variant,
             disabled: props.disabled,
             class: class,
-            {props.children}
+            children: {props.children}
         }
     }
 }
