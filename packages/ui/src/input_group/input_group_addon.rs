@@ -1,4 +1,5 @@
 use crate::cn;
+use crate::input_group::InputGroupCtx;
 use dioxus::prelude::*;
 
 #[derive(Clone, Copy, PartialEq, Default)]
@@ -58,15 +59,27 @@ pub struct InputGroupAddonProps {
     pub attributes: Vec<Attribute>,
 }
 
-/// TODO: The original version focuses the sibling input when the addon is clicked.
-/// This is not implemented for cross-platform compatibility.
+
+/// Clicking the addon will focus the sibling input/textarea.
 #[component]
 pub fn InputGroupAddon(props: InputGroupAddonProps) -> Element {
+    let ctx = use_context::<InputGroupCtx>();
+
+    let handle_click = move |_: MouseEvent| {
+        if let Some(control) = ctx.control.read().as_ref() {
+            let control = control.clone();
+            spawn(async move {
+                let _ = control.set_focus(true).await;
+            });
+        }
+    };
+
     rsx! {
         div {
             role: "group",
             "data-slot": "input-group-addon",
             "data-align": props.align.as_str(),
+            onclick: handle_click,
             class: cn(&input_group_addon_variants(props.align), &props.class),
             ..props.attributes,
             {props.children}
