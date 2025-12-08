@@ -43,3 +43,6 @@ pub use switch::*;
 
 pub mod field;
 pub use field::*;
+
+pub mod toggle;
+pub use toggle::*;
