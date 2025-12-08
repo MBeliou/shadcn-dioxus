@@ -89,6 +89,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         slug: "alert",
         title: "Alert",
     },
+    ComponentMeta {
+        slug: "input-group",
+        title: "Input Group",
+    },
 ];
 pub fn get_all_components() -> &'static [ComponentMeta] {
     COMPONENTS

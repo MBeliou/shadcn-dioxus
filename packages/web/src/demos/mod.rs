@@ -1,5 +1,8 @@
 use dioxus::prelude::*;
-use lucide_dioxus::{Bold, Italic, Plus, Underline};
+use lucide_dioxus::{
+    ArrowUp, Bold, Check, Copy, CornerDownLeft, CreditCard, FileCode, Info, Italic, Link2, Loader,
+    Mail, Plus, RefreshCw, Search, Star, Underline,
+};
 use ui::*;
 pub fn get_demo(name: &str) -> Option<Element> {
     match name {
@@ -605,6 +608,283 @@ pub fn get_demo(name: &str) -> Option<Element> {
                         NativeSelectOption { value: "", "Select a fruit" }
                         NativeSelectOption { value: "apple", "Apple" }
                         NativeSelectOption { value: "banana", "Banana" }
+                    }
+                },
+            )
+        }
+        "input-group-demo" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-6",
+                        InputGroup {
+                            InputGroupInput { placeholder: "Search..." }
+                            InputGroupAddon {
+                                Search {}
+                            }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                "12 results"
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { placeholder: "example.com", class: "!ps-1" }
+                            InputGroupAddon {
+                                InputGroupText { "https://" }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupTextarea { placeholder: "Ask, Search or Chat..." }
+                            InputGroupAddon { align: InputGroupAddonAlign::BlockEnd,
+                                InputGroupButton { variant: ButtonVariant::Outline, class: "rounded-full", size: InputGroupButtonSize::IconXs,
+                                    Plus {}
+                                }
+                                InputGroupText { class: "ms-auto", "52% used" }
+                                Separator { orientation: separator::SeparatorOrientation::Vertical, class: "!h-4" }
+                                InputGroupButton { variant: ButtonVariant::Default, class: "rounded-full", size: InputGroupButtonSize::IconXs, disabled: true,
+                                    ArrowUp {}
+                                }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { placeholder: "@shadcn" }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                div { class: "bg-primary text-primary-foreground flex size-4 items-center justify-center rounded-full",
+                                    Check { class: "size-3" }
+                                }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-icon" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-6",
+                        InputGroup {
+                            InputGroupInput { placeholder: "Search..." }
+                            InputGroupAddon {
+                                Search {}
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { r#type: "email", placeholder: "Enter your email" }
+                            InputGroupAddon {
+                                Mail {}
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { placeholder: "Card number" }
+                            InputGroupAddon {
+                                CreditCard {}
+                            }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                Check {}
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { placeholder: "Card number" }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                Star {}
+                                Info {}
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-text" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-6",
+                        InputGroup {
+                            InputGroupAddon {
+                                InputGroupText { "$" }
+                            }
+                            InputGroupInput { placeholder: "0.00" }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupText { "USD" }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupAddon {
+                                InputGroupText { "https://" }
+                            }
+                            InputGroupInput { placeholder: "example.com", class: "!ps-0.5" }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupText { ".com" }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { placeholder: "Enter your username" }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupText { "@company.com" }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupTextarea { placeholder: "Enter your message" }
+                            InputGroupAddon { align: InputGroupAddonAlign::BlockEnd,
+                                InputGroupText { class: "text-muted-foreground text-xs", "120 characters left" }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-button" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-6",
+                        InputGroup {
+                            InputGroupInput { readonly: true, placeholder: "https://x.com/shadcn" }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupButton { size: InputGroupButtonSize::IconXs,
+                                    Copy {}
+                                }
+                            }
+                        }
+                        InputGroup { class: "[--radius:9999px]",
+                            InputGroupAddon { class: "text-muted-foreground ps-1.5",
+                                InputGroupText { "https://" }
+                            }
+                            InputGroupInput {}
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupButton { size: InputGroupButtonSize::IconXs,
+                                    Star {}
+                                }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { placeholder: "Type to search..." }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupButton { variant: ButtonVariant::Secondary,
+                                    "Search"
+                                }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-textarea" => {
+            Some(
+                rsx! {
+                    InputGroup { class: "w-full max-w-md",
+                        InputGroupAddon { align: InputGroupAddonAlign::BlockStart, class: "border-b",
+                            InputGroupText { class: "font-mono font-medium",
+                                FileCode { class: "size-4" }
+                                "script.js"
+                            }
+                            InputGroupButton { class: "ms-auto", size: InputGroupButtonSize::IconXs,
+                                RefreshCw {}
+                            }
+                            InputGroupButton { variant: ButtonVariant::Ghost, size: InputGroupButtonSize::IconXs,
+                                Copy {}
+                            }
+                        }
+                        InputGroupTextarea { placeholder: "console.log('Hello, world!');", class: "min-h-[200px]" }
+                        InputGroupAddon { align: InputGroupAddonAlign::BlockEnd, class: "border-t",
+                            InputGroupText { "Line 1, Column 1" }
+                            InputGroupButton { size: InputGroupButtonSize::Sm, class: "ms-auto", variant: ButtonVariant::Default,
+                                "Run"
+                                CornerDownLeft {}
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-spinner" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-4",
+                        InputGroup { "data-disabled": "true",
+                            InputGroupInput { placeholder: "Searching...", disabled: true }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                Spinner {}
+                            }
+                        }
+                        InputGroup { "data-disabled": "true",
+                            InputGroupInput { placeholder: "Processing...", disabled: true }
+                            InputGroupAddon {
+                                Spinner {}
+                            }
+                        }
+                        InputGroup { "data-disabled": "true",
+                            InputGroupInput { placeholder: "Saving changes...", disabled: true }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupText { "Saving..." }
+                                Spinner {}
+                            }
+                        }
+                        InputGroup { "data-disabled": "true",
+                            InputGroupInput { placeholder: "Refreshing data...", disabled: true }
+                            InputGroupAddon {
+                                Loader { class: "animate-spin" }
+                            }
+                            InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                InputGroupText { class: "text-muted-foreground", "Please wait..." }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-label" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-4",
+                        InputGroup {
+                            InputGroupInput { id: "email", placeholder: "shadcn" }
+                            InputGroupAddon {
+                                Label { "for": "email", "@" }
+                            }
+                        }
+                        InputGroup {
+                            InputGroupInput { id: "email-2", placeholder: "shadcn@vercel.com" }
+                            InputGroupAddon { align: InputGroupAddonAlign::BlockStart,
+                                Label { "for": "email-2", class: "text-foreground", "Email" }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-button-group" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-6",
+                        ButtonGroup::Root {
+                            ButtonGroup::Text {
+                                Label { "for": "url", "https://" }
+                            }
+                            InputGroup {
+                                InputGroupInput { id: "url" }
+                                InputGroupAddon { align: InputGroupAddonAlign::InlineEnd,
+                                    Link2 {}
+                                }
+                            }
+                            ButtonGroup::Text { ".com" }
+                        }
+                    }
+                },
+            )
+        }
+        "input-group-custom-input" => {
+            Some(
+                rsx! {
+                    div { class: "grid w-full max-w-sm gap-6",
+                        InputGroup {
+                            textarea {
+                                "data-slot": "input-group-control",
+                                class: "field-sizing-content flex min-h-16 w-full resize-none rounded-md bg-transparent px-3 py-2.5 text-base outline-none transition-[color,box-shadow] md:text-sm",
+                                placeholder: "Autoresize textarea...",
+                            }
+                            InputGroupAddon { align: InputGroupAddonAlign::BlockEnd,
+                                InputGroupButton { class: "ms-auto", size: InputGroupButtonSize::Sm, variant: ButtonVariant::Default,
+                                    "Submit"
+                                }
+                            }
+                        }
                     }
                 },
             )
