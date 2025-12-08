@@ -554,6 +554,61 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "native-select-demo" => {
+            Some(
+                rsx! {
+                    NativeSelect {
+                        NativeSelectOption { value: "", "Select a fruit" }
+                        NativeSelectOption { value: "apple", "Apple" }
+                        NativeSelectOption { value: "banana", "Banana" }
+                        NativeSelectOption { value: "blueberry", "Blueberry" }
+                        NativeSelectOption { value: "grapes", disabled: true, "Grapes" }
+                        NativeSelectOption { value: "pineapple", "Pineapple" }
+                    }
+                },
+            )
+        }
+        "native-select-optgroup" => {
+            Some(
+                rsx! {
+                    NativeSelect {
+                        NativeSelectOption { value: "", "Select a food" }
+                        NativeSelectOptGroup { label: "Fruits",
+                            NativeSelectOption { value: "apple", "Apple" }
+                            NativeSelectOption { value: "banana", "Banana" }
+                            NativeSelectOption { value: "blueberry", "Blueberry" }
+                        }
+                        NativeSelectOptGroup { label: "Vegetables",
+                            NativeSelectOption { value: "carrot", "Carrot" }
+                            NativeSelectOption { value: "broccoli", "Broccoli" }
+                            NativeSelectOption { value: "spinach", "Spinach" }
+                        }
+                    }
+                },
+            )
+        }
+        "native-select-disabled" => {
+            Some(
+                rsx! {
+                    NativeSelect { disabled: true,
+                        NativeSelectOption { value: "", "Select a fruit" }
+                        NativeSelectOption { value: "apple", "Apple" }
+                        NativeSelectOption { value: "banana", "Banana" }
+                    }
+                },
+            )
+        }
+        "native-select-invalid" => {
+            Some(
+                rsx! {
+                    NativeSelect { aria_invalid: "true",
+                        NativeSelectOption { value: "", "Select a fruit" }
+                        NativeSelectOption { value: "apple", "Apple" }
+                        NativeSelectOption { value: "banana", "Banana" }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }

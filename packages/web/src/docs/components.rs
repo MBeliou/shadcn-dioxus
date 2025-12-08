@@ -58,6 +58,10 @@ const COMPONENTS: &[ComponentMeta] = &[
         title: "Label",
     },
     ComponentMeta {
+        slug: "native-select",
+        title: "Native Select",
+    },
+    ComponentMeta {
         slug: "separator",
         title: "Separator",
     },

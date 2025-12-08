@@ -20,6 +20,7 @@ pub fn get_component_doc(name: &str) -> Option<&'static str> {
         "field" => Some(include_str!("../content/components/field.md")),
         "toggle" => Some(include_str!("../content/components/toggle.md")),
         "aspect-ratio" => Some(include_str!("../content/components/aspect-ratio.md")),
+        "native-select" => Some(include_str!("../content/components/native-select.md")),
         "alert" => None,
         _ => None,
     }
