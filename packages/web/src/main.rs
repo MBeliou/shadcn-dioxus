@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use ui::ButtonVariant;
+use ui::{ButtonVariant, PortalProvider};
 use views::{ComponentDoc, ComponentView, Home, PlaygroundExample};
 use crate::components::{FullLayout, SidebarLayout};
 mod components;
@@ -25,10 +25,10 @@ enum Route {
     #[route("/:..route")]
     NotFound { route: Vec<String> },
 }
+
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!(
-    "/assets/tailwind.css", CssAssetOptions::new().with_preload(true)
-    .with_hash_suffix(false)
+    "/assets/tailwind.css", CssAssetOptions::new()
 );
 const _: Asset = asset!("/assets/og.png", AssetOptions::image().with_hash_suffix(false));
 const _: Asset = asset!(
@@ -45,7 +45,9 @@ fn App() -> Element {
     rsx! {
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
-        Router::<Route> {}
+        PortalProvider {
+            Router::<Route> {}
+        }
     }
 }
 #[component]

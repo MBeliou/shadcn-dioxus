@@ -22,6 +22,7 @@ pub fn get_component_doc(name: &str) -> Option<&'static str> {
         "aspect-ratio" => Some(include_str!("../content/components/aspect-ratio.md")),
         "native-select" => Some(include_str!("../content/components/native-select.md")),
         "input-group" => Some(include_str!("../content/components/input-group.md")),
+        "dialog" => Some(include_str!("../content/components/dialog.md")),
         "alert" => None,
         _ => None,
     }

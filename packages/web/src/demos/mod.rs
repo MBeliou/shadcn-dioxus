@@ -917,6 +917,69 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "dialog-demo" => {
+            Some(
+                rsx! {
+                    Dialog {
+                        DialogTrigger {
+                            Button { variant: ButtonVariant::Outline, "Edit Profile" }
+                        }
+                        DialogPortal {
+                            DialogOverlay {}
+                            DialogContent { class: "sm:max-w-[425px]",
+                                DialogHeader {
+                                    DialogTitle { "Edit profile" }
+                                    DialogDescription {
+                                        "Make changes to your profile here. Click save when you're done."
+                                    }
+                                }
+                                div { class: "grid gap-4 py-4",
+                                    div { class: "grid grid-cols-4 items-center gap-4",
+                                        Label { "for": "name", class: "text-end", "Name" }
+                                        Input { id: "name", value: "Pedro Duarte", class: "col-span-3" }
+                                    }
+                                    div { class: "grid grid-cols-4 items-center gap-4",
+                                        Label { "for": "username", class: "text-end", "Username" }
+                                        Input { id: "username", value: "@peduarte", class: "col-span-3" }
+                                    }
+                                }
+                                DialogFooter {
+                                    Button { button_type: "submit", "Save changes" }
+                                }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "dialog-form" => {
+            Some(
+                rsx! {
+                    Dialog {
+                        DialogTrigger {
+                            Button { "Open" }
+                        }
+                        DialogPortal {
+                            DialogOverlay {}
+                            DialogContent {
+                                DialogHeader {
+                                    DialogTitle { "Are you absolutely sure?" }
+                                    DialogDescription {
+                                        "This action cannot be undone. This will permanently delete your account and remove your data from our servers."
+                                    }
+                                }
+                                DialogFooter {
+                                    DialogClose {
+                                        Button { variant: ButtonVariant::Outline, "Cancel" }
+                                    }
+                                    Button { variant: ButtonVariant::Destructive, "Delete" }
+                                }
+                            }
+                        }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }
