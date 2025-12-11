@@ -47,6 +47,10 @@ pub mod native_select;
 pub use native_select::*;
 pub mod input_group;
 pub use input_group::*;
+pub mod dialog;
+pub use dialog::*;
+pub mod portal;
+pub use portal::*;
 #[cfg(test)]
 mod tests {
     use tailwind_fuse::tw_merge;
