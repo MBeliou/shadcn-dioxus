@@ -1,0 +1,8 @@
+name = "shadcn-dioxus"
+compatibility_date = "2024-01-01"
+
+
+[assets]
+directory = "../../target/dx/web/release/web/public/"
+not_found_handling = "single-page-application"
+html_handling = "auto-trailing-slash"

@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-dioxus = { workspace = true, features = ["router", "fullstack"] }
+dioxus = { workspace = true, features = ["router", "web"] }
 dioxus-markdown = { git = "https://github.com/rambip/rust-web-markdown", package = "dioxus-markdown" }
 gray_matter = { version = "0.3.2", default-features = false, features = [
     "yaml",
@@ -14,6 +14,5 @@ serde = { version = "1.0.228", features = ["derive"] }
 ui = { workspace = true }
 
 [features]
-default = []
-web = ["dioxus/web"]
-server = ["dioxus/server"] 
+default = ["web"]
+web = ["dioxus/web"] 
