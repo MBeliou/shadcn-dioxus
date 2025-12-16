@@ -25,7 +25,8 @@ pub fn ComponentDoc(name: String) -> Element {
                     },
                 );
             rsx! {
-                article { class: "prose dark:prose-invert max-w-none *>pre:bg-red-500",
+                // TODO: we'll want to remove the tailwind prose to use our own styling. 
+                article { class: "prose dark:prose-invert max-w-none",
                     header { class: "mb-8",
                         h1 { class: "scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xld",
                             "{parsed.frontmatter.title}"
