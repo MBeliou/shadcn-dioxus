@@ -3,4 +3,8 @@ title: Installation
 description: Description
 ---
 
-<PmBlock command="Coming soon"/>
+### Create project
+
+Use the Dioxus CLI to create a project.
+
+<PmBlock command="dx new my_app"/>
