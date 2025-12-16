@@ -10,9 +10,10 @@ pub fn InstallationView() -> Element {
 
     let mut custom_components = CustomComponents::new();
     custom_components.register("PmBlock", |props| {
-        
-        let command = props.get("command").map(|v| v.as_str().to_string())
-                            .unwrap_or_default();
+        let command = props
+            .get("command")
+            .map(|v| v.as_str().to_string())
+            .unwrap_or_default();
 
         Ok(rsx! {
             PmBlock {  command:command.to_string()}
@@ -30,11 +31,16 @@ pub fn InstallationView() -> Element {
                 p { class: "text-muted-foreground text-balance text-[1.05rem] sm:text-base",
                     "Install and configure shadcn for Dioxus."
                 }
+                div {
+                    class:"[&>*>pre]:p-4 mt-12 [&>*>pre]:rounded-md [&>*>pre]:bg-code! [&>*>pre]:text-code-foreground space-y-4",
                 Markdown {
                         src: parsed.content.clone(),
                         components: custom_components,
                         theme: "base16-ocean.dark",
+
                     }
+                }
+
 
             }
 
