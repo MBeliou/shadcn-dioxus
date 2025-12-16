@@ -55,3 +55,32 @@ fn SidebarLink(
         }
     }
 }
+
+
+
+#[component]
+pub fn SidebarLinkv2(
+    to: NavigationTarget,
+    is_active: bool,
+    #[props(default = false)]
+    large_text: bool,
+    children: Element,
+) -> Element {
+    let base_class = if large_text {
+        "text-2xl font-medium py-1"
+    } else {
+        "text-sm py-1.5 px-2 rounded-md transition-colors"
+    };
+    let state_class = if is_active {
+        "font-medium text-foreground bg-accent text-start justify-start"
+    } else {
+        "text-muted-foreground hover:text-foreground hover:bg-accent text-start justify-start"
+    };
+    rsx! {
+        Link {
+            to: to,
+            class: cn(&button_variants(ButtonVariant::Ghost, ButtonSize::Sm), state_class),
+            {children}
+        }
+    }
+}
