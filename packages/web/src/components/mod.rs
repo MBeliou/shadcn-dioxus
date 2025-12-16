@@ -13,3 +13,5 @@ pub use sidebar::*;
 pub use sidebar_nav::*;
 mod layouts;
 pub use layouts::*;
+mod pm_block;
+pub use pm_block::PmBlock;
