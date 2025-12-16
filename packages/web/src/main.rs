@@ -1,7 +1,7 @@
 use crate::components::{FullLayout, SidebarLayout};
 use dioxus::prelude::*;
 use ui::{ButtonVariant, PortalProvider};
-use views::{ComponentDoc, ComponentView, Home, PlaygroundExample};
+use views::{ComponentDoc, ComponentView, Home, PlaygroundExample, InstallationView};
 mod components;
 mod demos;
 mod docs;
@@ -18,6 +18,8 @@ enum Route {
     PlaygroundExample {},
     #[end_layout]
     #[layout(SidebarLayout)]
+    #[route("/docs/installation")]
+    InstallationView {},
     #[route("/docs/components")]
     ComponentView {},
     #[route("/docs/components/:name")]
