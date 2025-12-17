@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Description
+description: Install and configure shadcn for Dioxus.
 ---
 
 ### Create project

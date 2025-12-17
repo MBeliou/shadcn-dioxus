@@ -5,6 +5,9 @@ pub struct ParsedDoc {
     pub frontmatter: DocFrontmatter,
     pub content: String,
 }
+/**
+ * Parses markdown content and splits it between frontmatter and actual content
+ */
 pub fn parse_doc(raw_markdown: &str) -> Option<ParsedDoc> {
     let matter = Matter::<YAML>::new();
     let result: ParsedEntity<DocFrontmatter> = matter.parse(raw_markdown).ok()?;
@@ -13,3 +16,4 @@ pub fn parse_doc(raw_markdown: &str) -> Option<ParsedDoc> {
         content: result.content,
     })
 }
+

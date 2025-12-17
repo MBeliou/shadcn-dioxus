@@ -25,11 +25,11 @@ pub fn InstallationView() -> Element {
             div { class: "flex flex-col gap-2",
                 div { class: "flex items-start justify-between",
                     h1 { class: "scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl",
-                        "Installation"
+                        "{parsed.frontmatter.title}"
                     }
                 }
                 p { class: "text-muted-foreground text-balance text-[1.05rem] sm:text-base",
-                    "Install and configure shadcn for Dioxus."
+                    "{parsed.frontmatter.description}"
                 }
                 div {
                     class:"[&>*>pre]:p-4 mt-12 [&>*>pre]:rounded-md [&>*>pre]:bg-code! [&>*>pre]:text-code-foreground space-y-4",
