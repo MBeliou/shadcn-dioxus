@@ -6,6 +6,8 @@ use dioxus_markdown::{CustomComponents, Markdown};
 pub fn ComponentDoc(name: String) -> Element {
     let doc = get_component_doc(&name).and_then(parse_doc);
     let exists = component_exists(&name);
+
+    // TODO: match on component existing. If it does, render using DocView and Optional content. If it doesn't then we need to figure out if docs' available or not.
     match (doc, exists) {
         (Some(parsed), _) => {
             let mut custom_components = CustomComponents::new();

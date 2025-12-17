@@ -5,3 +5,10 @@ pub use component::*;
 
 mod installation;
 pub use installation::*;
+
+
+mod utils;
+
+
+mod doc_view;
+pub use doc_view::DocView;
