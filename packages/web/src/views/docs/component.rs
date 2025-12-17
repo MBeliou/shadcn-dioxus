@@ -2,7 +2,6 @@ use crate::docs::{component_exists, loader::parse_doc, registry::get_component_d
 use crate::views::DocView;
 use dioxus::prelude::*;
 
-
 #[component]
 pub fn ComponentDoc(name: String) -> Element {
     let exists = component_exists(&name);

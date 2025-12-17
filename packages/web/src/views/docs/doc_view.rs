@@ -1,10 +1,8 @@
-use crate::Route;
-use crate::components::ComponentPreview;
 use crate::docs::ParsedDoc;
-use crate::docs::{component_exists, loader::parse_doc, registry::get_component_doc};
 use crate::views::docs::utils::create_doc_components;
+use crate::Route;
 use dioxus::prelude::*;
-use dioxus_markdown::{CustomComponents, Markdown};
+use dioxus_markdown::Markdown;
 use ui::ButtonVariant;
 
 /**
