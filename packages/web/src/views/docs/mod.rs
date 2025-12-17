@@ -7,6 +7,9 @@ mod installation;
 pub use installation::*;
 
 
+mod theming;
+pub use theming::*;
+
 mod utils;
 
 

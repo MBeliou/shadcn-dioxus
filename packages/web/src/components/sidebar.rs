@@ -27,6 +27,14 @@ pub fn Sidebar(#[props(into, default)] active_slug: String) -> Element {
                         "Components"
                     }
                 }
+                 SidebarLinkv2 {
+                    to: Route::ThemingView {  }.into(),
+                    // FIXME: active_slug references a docs component slug, which we don't have. We need to fix the whole implementation
+                    is_active: active_slug == "theming",
+                    div {
+                        "Theming"
+                    }
+                }
             }
 
                 div { class: "py-4",
