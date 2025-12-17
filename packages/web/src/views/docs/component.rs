@@ -1,96 +1,30 @@
-use crate::components::ComponentPreview;
 use crate::docs::{component_exists, loader::parse_doc, registry::get_component_doc};
+use crate::views::DocView;
 use dioxus::prelude::*;
-use dioxus_markdown::{CustomComponents, Markdown};
+
+
 #[component]
 pub fn ComponentDoc(name: String) -> Element {
-    let doc = get_component_doc(&name).and_then(parse_doc);
     let exists = component_exists(&name);
 
-    // TODO: match on component existing. If it does, render using DocView and Optional content. If it doesn't then we need to figure out if docs' available or not.
-    match (doc, exists) {
-        (Some(parsed), _) => {
-            let mut custom_components = CustomComponents::new();
-            custom_components
-                .register(
-                    "ComponentPreview",
-                    |props| {
-                        let name = props
-                            .get("name")
-                            .map(|v| v.as_str().to_string())
-                            .unwrap_or_default();
-                        Ok(
-                            rsx! {
-                                ComponentPreview { name: name.to_string() }
-                            },
-                        )
-                    },
-                );
+    match exists {
+        true => {
+            // Component exists, we can try and get its contents to render
+            let doc = get_component_doc(&name).and_then(parse_doc);
+
+            // NOTE: We used to have dedicated fallback content if a component existed but did not have a doc file yet. I've pulled the plug on that one for now, we'll revisit in the future.
             rsx! {
-                // TODO: we'll want to remove the tailwind prose to use our own styling. 
-                article { class: "prose dark:prose-invert max-w-none",
-                    header { class: "mb-8",
-                        h1 { class: "scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xld",
-                            "{parsed.frontmatter.title}"
-                        }
-                        p { class: "text-muted-foreground text-balance text-[1.05rem] sm:text-base",
-                            "{parsed.frontmatter.description}"
-                        }
-                        if let Some(links) = &parsed.frontmatter.links {
-                            div { class: "flex gap-4 mt-4",
-                                if let Some(source) = &links.source {
-                                    a {
-                                        href: "{source}",
-                                        class: "text-sm text-muted-foreground hover:underline",
-                                        "Source"
-                                    }
-                                }
-                                if let Some(doc) = &links.doc {
-                                    a {
-                                        href: "{doc}",
-                                        class: "text-sm text-muted-foreground hover:underline",
-                                        "Docs"
-                                    }
-                                }
-                                if let Some(api) = &links.api {
-                                    a {
-                                        href: "{api}",
-                                        class: "text-sm text-muted-foreground hover:underline",
-                                        "API Reference"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Markdown {
-                        src: parsed.content.clone(),
-                        components: custom_components,
-                        theme: "base16-ocean.dark",
-                    }
+                DocView {
+                    parsed_content: doc
                 }
             }
         }
-        (None, true) => {
+        false => {
             rsx! {
-                div { class: "py-12",
-                    h1 { class: "scroll-m-20 capitalize text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl mb-4",
-                        "{name}"
+                    div { class: "text-center py-12",
+                        h1 { class: "text-2xl font-bold", "Component not found" }
+                        p { class: "text-muted-foreground", "The component \"{name}\" doesn't exist." }
                     }
-                    div { class: "rounded-lg border border-border bg-muted/50 p-8 text-center",
-                        p { class: "text-muted-foreground text-lg", "Documentation coming soon." }
-                        p { class: "text-muted-foreground text-sm mt-2",
-                            "This component is available but documentation is still being written."
-                        }
-                    }
-                }
-            }
-        }
-        (None, false) => {
-            rsx! {
-                div { class: "text-center py-12",
-                    h1 { class: "text-2xl font-bold", "Component not found" }
-                    p { class: "text-muted-foreground", "The component \"{name}\" doesn't exist." }
-                }
             }
         }
     }
