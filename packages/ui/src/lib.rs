@@ -51,6 +51,9 @@ pub mod dialog;
 pub use dialog::*;
 pub mod portal;
 pub use portal::*;
+pub mod sheet;
+pub use sheet::*;
+
 #[cfg(test)]
 mod tests {
     use tailwind_fuse::tw_merge;

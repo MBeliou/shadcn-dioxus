@@ -980,6 +980,107 @@ pub fn get_demo(name: &str) -> Option<Element> {
                 },
             )
         }
+        "sheet-demo" => {
+            Some(
+                rsx! {
+                    Sheet {
+                        SheetTrigger {
+                            Button { variant: ButtonVariant::Outline, "Open Sheet" }
+                        }
+                        SheetPortal {
+                            SheetOverlay {}
+                            SheetContent {
+                                SheetHeader {
+                                    SheetTitle { "Edit profile" }
+                                    SheetDescription {
+                                        "Make changes to your profile here. Click save when you're done."
+                                    }
+                                }
+                                div { class: "grid gap-4 py-4",
+                                    div { class: "grid grid-cols-4 items-center gap-4",
+                                        Label { "for": "name", class: "text-end", "Name" }
+                                        Input { id: "name", value: "Pedro Duarte", class: "col-span-3" }
+                                    }
+                                    div { class: "grid grid-cols-4 items-center gap-4",
+                                        Label { "for": "username", class: "text-end", "Username" }
+                                        Input { id: "username", value: "@peduarte", class: "col-span-3" }
+                                    }
+                                }
+                                SheetFooter {
+                                    SheetClose {
+                                        Button { button_type: "submit", "Save changes" }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+            )
+        }
+        "sheet-side" => {
+            Some(
+                rsx! {
+                    div { class: "flex gap-2",
+                        Sheet {
+                            SheetTrigger {
+                                Button { variant: ButtonVariant::Outline, "Left" }
+                            }
+                            SheetPortal {
+                                SheetOverlay {}
+                                SheetContent { side: Side::Left,
+                                    SheetHeader {
+                                        SheetTitle { "Left Sheet" }
+                                        SheetDescription { "This sheet slides in from the left." }
+                                    }
+                                }
+                            }
+                        }
+                        Sheet {
+                            SheetTrigger {
+                                Button { variant: ButtonVariant::Outline, "Top" }
+                            }
+                            SheetPortal {
+                                SheetOverlay {}
+                                SheetContent { side: Side::Top,
+                                    SheetHeader {
+                                        SheetTitle { "Top Sheet" }
+                                        SheetDescription { "This sheet slides in from the top." }
+                                    }
+                                }
+                            }
+                        }
+                        Sheet {
+                            SheetTrigger {
+                                Button { variant: ButtonVariant::Outline, "Bottom" }
+                            }
+                            SheetPortal {
+                                SheetOverlay {}
+                                SheetContent { side: Side::Bottom,
+                                    SheetHeader {
+                                        SheetTitle { "Bottom Sheet" }
+                                        SheetDescription { "This sheet slides in from the bottom." }
+                                    }
+                                }
+                            }
+                        }
+                        Sheet {
+                            SheetTrigger {
+                                Button { variant: ButtonVariant::Outline, "Right" }
+                            }
+                            SheetPortal {
+                                SheetOverlay {}
+                                SheetContent { side: Side::Right,
+                                    SheetHeader {
+                                        SheetTitle { "Right Sheet" }
+                                        SheetDescription { "This sheet slides in from the right." }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+            )
+        }
         _ => None,
     }
 }
