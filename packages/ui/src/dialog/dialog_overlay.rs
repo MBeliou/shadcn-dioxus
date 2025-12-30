@@ -2,7 +2,7 @@ use crate::cn;
 use crate::dialog::DialogContext;
 use dioxus::prelude::*;
 
-const OVERLAY_BASE: &str = "fixed inset-0 z-50 bg-black/50";
+const OVERLAY_BASE: &str = "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0  fixed inset-0 z-50 bg-black/50";
 
 #[derive(Props, Clone, PartialEq)]
 pub struct DialogOverlayProps {
