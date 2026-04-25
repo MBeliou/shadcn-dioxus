@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use crate::{cn, AvatarCtx, AvatarLoadingStatus};
+use crate::{AvatarCtx, AvatarLoadingStatus};
 #[derive(Props, Clone, PartialEq)]
 pub struct AvatarImageProps {
     pub src: String,

@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 use futures_timer::Delay;
 use std::time::Duration;
-use crate::{cn, AvatarCtx, AvatarLoadingStatus};
+use crate::{AvatarCtx, AvatarLoadingStatus};
 #[derive(Props, Clone, PartialEq)]
 pub struct AvatarFallbackProps {
     #[props(default)]

@@ -3,8 +3,8 @@ use dioxus::prelude::*;
 #[derive(Debug, Clone, Copy, PartialEq, Default)]
 pub enum FieldLegendVariant {
     #[default]
-    Legend,
     Label,
+    Legend,
 }
 #[derive(Props, Clone, PartialEq)]
 pub struct FieldLegendProps {

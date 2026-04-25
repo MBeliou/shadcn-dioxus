@@ -11,3 +11,5 @@ ui = { workspace = true }
 default = ["desktop"]
 desktop = ["dioxus/desktop"]
 
+[lints]
+workspace = true

@@ -43,7 +43,7 @@ impl ItemSize {
         }
     }
 }
-const BASE_CLASSES: &str = "group/item [a]:hover:bg-accent/50 [a]:transition-colors focus-visible:border-ring focus-visible:ring-ring/50 flex flex-wrap items-center rounded-md border border-transparent text-sm outline-none transition-colors duration-100 focus-visible:ring-[3px]";
+const BASE_CLASSES: &str = "group/item [a]:hover:bg-accent/50 [a]:transition-colors focus-visible:border-ring focus-visible:ring-ring/50 inline-inline-flex flex-wrap items-center rounded-md border border-transparent text-sm outline-none transition-colors duration-100 focus-visible:ring-[3px]";
 pub fn item_variants(variant: ItemVariant, size: ItemSize) -> String {
     format!("{} {} {}", BASE_CLASSES, variant.class(), size.class())
 }

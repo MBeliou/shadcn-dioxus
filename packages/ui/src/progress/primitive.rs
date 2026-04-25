@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-#[derive(Clone, Copy, PartialEq, Default)]
+#[derive(Clone, Copy, PartialEq, Default, Debug)]
 pub enum ProgressState {
     #[default]
     Indeterminate,

@@ -4,15 +4,20 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+console_error_panic_hook = "0.1.7"
 dioxus = { workspace = true, features = ["router", "web"] }
 dioxus-markdown = { git = "https://github.com/rambip/rust-web-markdown", package = "dioxus-markdown" }
 gray_matter = { version = "0.3.2", default-features = false, features = [
     "yaml",
 ] }
+log = "0.4.29"
 lucide-dioxus = { version = "2.45.0", features = ["all-icons"] }
 serde = { version = "1.0.228", features = ["derive"] }
 ui = { workspace = true }
+wasm-logger = "0.2.0"
 
 [features]
 default = ["web"]
-web = ["dioxus/web"] 
+web = ["dioxus/web"]
+[lints]
+workspace = true

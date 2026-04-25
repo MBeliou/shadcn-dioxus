@@ -159,3 +159,67 @@
     --header-height: calc(var(--spacing) * 14);
   }
 }
+
+@layer utilities {
+  .doc-content pre {
+    overflow-x: auto;
+    position: relative;
+  }
+  .doc-content pre::-webkit-scrollbar {
+    height: 6px;
+  }
+  .doc-content pre::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .doc-content pre::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 3px;
+  }
+  .doc-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@layer utilities {
+  /* Code blocks should have a minimum width and proper padding */
+  .doc-content pre {
+    min-width: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  /* On larger screens, allow horizontal scroll instead of wrapping */
+  @media (min-width: 640px) {
+    .doc-content pre {
+      white-space: pre;
+      overflow-x: auto;
+    }
+  }
+}
+
+@layer components {
+  .copy-btn {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background: hsl(var(--code-highlight));
+    color: hsl(var(--code-foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.25rem;
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .doc-content pre:hover .copy-btn,
+  .doc-content pre:focus-within .copy-btn {
+    opacity: 0.8;
+  }
+  .copy-btn:hover {
+    opacity: 1 !important;
+  }
+}

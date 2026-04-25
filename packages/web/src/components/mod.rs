@@ -14,4 +14,5 @@ pub use sidebar_nav::*;
 mod layouts;
 pub use layouts::*;
 mod pm_block;
-pub use pm_block::PmBlock;
+pub use pm_block::PmBlock;pub mod weblayout;
+pub use weblayout::{WebNavbar, NotFound};

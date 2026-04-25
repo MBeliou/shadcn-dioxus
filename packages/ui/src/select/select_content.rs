@@ -1,0 +1,62 @@
+use crate::cn;
+use crate::select::SelectContext;
+use dioxus::prelude::*;
+
+const CONTENT_BASE: &str = "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2";
+
+#[derive(Clone, PartialEq, Props)]
+pub struct SelectContentProps {
+    #[props(into, default)]
+    pub class: String,
+    #[props(default = "bottom".to_string())]
+    pub side: String,
+    #[props(default = false)]
+    pub force_mount: bool,
+    pub children: Element,
+    #[props(extends = GlobalAttributes)]
+    pub attributes: Vec<Attribute>,
+}
+
+#[component]
+pub fn SelectContent(props: SelectContentProps) -> Element {
+    let ctx = use_context::<SelectContext>();
+    let open = ctx.open;
+    let set_open = ctx.set_open;
+
+    if !props.force_mount && !open() {
+        return rsx! {};
+    }
+
+    let data_state = if open() { "open" } else { "closed" };
+    let side_class = format!("data-[side={}]", props.side);
+    let position_class = match props.side.as_str() {
+        "top" => "bottom-full left-0 mb-2",
+        "bottom" => "top-full left-0 mt-2",
+        _ => "top-full left-0 mt-2",
+    };
+
+    let base = cn(CONTENT_BASE, &side_class);
+    let with_pos = cn(&base, position_class);
+    let classes = cn(&with_pos, "absolute w-full");
+    let final_classes = cn(&classes, &props.class);
+
+    rsx! {
+        div {
+            class: "fixed inset-0 z-40",
+            onclick: move |_| set_open.call(false),
+        }
+        div {
+            "data-slot": "select-content",
+            "data-state": data_state,
+            "data-side": "{props.side}",
+            role: "listbox",
+            class: "{final_classes}",
+            onclick: move |evt| evt.stop_propagation(),
+            onkeydown: move |evt: KeyboardEvent| {
+                if evt.key() == Key::Escape { set_open.call(false); }
+            },
+            ..props.attributes,
+            div { class: "p-1 h-full overflow-y-auto", {props.children} }
+        }
+    }
+}

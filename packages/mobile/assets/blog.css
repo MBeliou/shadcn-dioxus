@@ -1,8 +1,36 @@
 #blog {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 #blog a {
   color: #ffffff;
-  margin-top: 50px;
+  margin-top: 40px;
+}
+
+#links {
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+  font-size: large;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#links a {
+  color: white;
+  text-decoration: none;
+  margin-top: 16px;
+  margin: 8px 0px;
+  border: white 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+#links a:hover {
+  background-color: #1f1f1f;
+  cursor: pointer;
 }
